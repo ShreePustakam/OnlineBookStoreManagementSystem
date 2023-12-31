@@ -1,24 +1,28 @@
-//import axios from 'axios';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
- import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import Footer from './Footer';
-//import Header from  './Header';
-//import Book from './Book';
-//import Cart from './Cart';
-//import Wishlist from './Wishlist';
-import Bill from './Bill';
-//import Orders from './Orders';
-//import Rating from './Rating';
-import BookSet from './BookSet.jsx';
+import '../Styles/home.css';
+import BookSeries from './BookSeries';
+import Fantasy from './Fantasy';
+import SelfHelp from './SelfHelp';
+import Manga from './Manga';
+import Navbar1 from './Navbar1';
+import Navbar2 from './Navbar2';
+import Advertisments from './Advertisments';
+import BottomAds from './BottomAds';
 function Dashboard() {
 
    return (
       <>
-      <Navbar/>
-    <h1>DASHBOARD</h1>
-      <BookSet/>
-      <Bill/>
-    <Footer/>
+         <Navbar1/>
+         <Navbar2/>
+         <Advertisments/>
+         <BookSeries/>
+         <Fantasy/>
+         <SelfHelp/>
+         <Manga/>
+         <BottomAds/>
+         <Footer/>
       </>
    )
 }
