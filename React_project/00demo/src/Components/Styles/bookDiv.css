@@ -1,0 +1,30 @@
+.DivStyle {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    height: auto;
+    margin: auto;
+    width: 80%;
+    border: 3px solid green;
+    padding: 10px;
+  }
+.DivDesc{
+    height: 30%
+}
+.BookImg {
+    width: 18rem;
+}
+
+.transparent-div {
+    background-color: rgba(255, 0, 0, 0.5); /* Red color with 50% transparency */
+    padding: 20px;
+    border-radius: 25px;
+    color: #1a114d; /* Text color for better visibility on a transparent background */
+  }
+
+  .Div-corners {
+    
+    
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+  }
