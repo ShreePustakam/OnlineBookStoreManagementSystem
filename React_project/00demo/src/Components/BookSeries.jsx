@@ -1,4 +1,5 @@
-import '../Styles/componentStyles.css'
+import './Styles/componentStyles.css'
+import {Link, Switch, Route} from 'react-router-dom';
 function BookSeries(){
     return (
         <>
@@ -15,7 +16,7 @@ function BookSeries(){
                     <div id="carouselExampleInterval3" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-inner">
                                 <div className="carousel-item active">
-                                <img src="/ProjectAssets/GameOfThrones/A-Clash-Of-Kings.jpg" className="d-block w-100" alt="..."/>
+                                <Link to="/bookset"><img src="/ProjectAssets/GameOfThrones/A-Clash-Of-Kings.jpg" className="d-block w-100" alt="..."/></Link>
                                 </div>
                                 <div className="carousel-item">
                                 <img src="/ProjectAssets/GameOfThrones/A-Dance-With-Dragons.jpg" className="d-block w-100" alt="..."/>

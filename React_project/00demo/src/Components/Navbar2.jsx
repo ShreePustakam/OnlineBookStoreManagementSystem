@@ -1,5 +1,6 @@
-import "../Styles/componentStyles.css";
-
+import "./Styles/componentStyles.css";
+import Home from "./Pages/Home";
+import {Link, Switch, Route} from 'react-router-dom';
 function MyNavbar2() {
   return (
     <>
@@ -57,13 +58,15 @@ function MyNavbar2() {
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
+                {/* <a class="nav-link active" aria-current="page" href="#">
+                  Home</Link>
+                </a> */}
+                <Link to="/">Home</Link>
+                {/* <Route path="/" component={Home} exact /> */}
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  Link
+                 
                 </a>
               </li>
               <li class="nav-item">
@@ -75,6 +78,15 @@ function MyNavbar2() {
                 >
                   Disabled
                 </a>
+              </li>
+              <li class="nav-item">
+                <Link to="/cart">Cart</Link>
+              </li>
+              <li class="nav-item">
+          <Link to="/wishlist">Wishlist</Link>
+              </li>
+              <li class="nav-item">
+                <Link to="/orders">Orders</Link>
               </li>
             </ul>
           </div>

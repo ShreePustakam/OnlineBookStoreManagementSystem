@@ -20,7 +20,7 @@ function Bill() {
                         <div className="card card-2">
                             <div className="card-body">
                                 <div className="media">
-                                    <div className="sq align-self-center "> <img className="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="http://localhost:3000/book1.jpg" width="80" height="80" /> </div>
+                                    <div className="sq align-self-center "> <img className="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/book1.jpg" width="80" height="80" /> </div>
                                     <div className="media-body my-auto text-right">
                                         <div className="row  my-auto flex-column flex-md-row">
                                             <div className="col my-auto"> <h6 className="mb-0"> Jack Jacs</h6>  </div>
@@ -52,7 +52,7 @@ function Bill() {
                         <div className="card card-2">
                             <div className="card-body">
                             <div className="media">
-                                    <div className="sq align-self-center "> <img className="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="http://localhost:3000/book1.jpg" width="80" height="80" /> </div>
+                                    <div className="sq align-self-center "> <img className="img-fluid  my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="/book1.jpg" width="80" height="80" /> </div>
                                     <div className="media-body my-auto text-right">
                                         <div className="row  my-auto flex-column flex-md-row">
                                             <div className="col my-auto"> <h6 className="mb-0"> Jack Jacs</h6>  </div>

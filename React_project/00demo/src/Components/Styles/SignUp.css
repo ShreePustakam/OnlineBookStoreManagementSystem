@@ -1,0 +1,45 @@
+.DivSignUp {
+    border-radius: 25px;
+    border: 2px solid #c089e48e;
+    height: 60%;
+    margin: auto;
+    /* margin-top: 200px; */
+    width: 30%;
+    border: 3px solid rgba(27, 68, 202, 0.454);
+    padding: 10px;
+    color: rgba(157, 80, 212, 0.663);
+    background-color: #cbc577b6;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .DivSignUp2 {
+    margin-top: 200px;
+  }
+
+  .SignUpImage {
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220219/pngtree-book-covers-stack-reference-close-up-photo-image_15995296.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+        min-height: 100%;
+        min-width: 1024px;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+  }
+
+  @media screen and (max-width: 1024px) { /* Specific to this particular image */
+
+    .SignUpImage {
+  
+      left: 50%;
+  
+      margin-left: -512px;   /* 50% */
+  
+    }
+  
+  }
+  

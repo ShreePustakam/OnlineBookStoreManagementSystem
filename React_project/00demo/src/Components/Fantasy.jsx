@@ -1,4 +1,5 @@
-import '../Styles/componentStyles.css';
+import './Styles/componentStyles.css';
+import { Link } from 'react-router-dom';
 function Fantasy(){
     return(
         <>
@@ -10,7 +11,8 @@ function Fantasy(){
                     <span class="glyphicon glyphicon-heart"></span>
                     <i class="fa-sharp fa-regular fa-heart"></i>
                     </button>
-                    <img src="/ProjectAssets/Fantasy/AllTheBirdsInTheSky.jpg" className="card-img-top" alt="..."/>
+                    <Link to='/book'> <img src="/ProjectAssets/Fantasy/AllTheBirdsInTheSky.jpg" className="card-img-top" alt="..."/></Link>
+                   
                     <div className="card-body">
                         <h5 className="card-title">All The Birds In The Sky</h5>
                         <div className='pricing'>

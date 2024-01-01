@@ -1,4 +1,4 @@
-import '../Styles/componentStyles.css'
+import './Styles/componentStyles.css'
 
 function Manga(){
     return(
