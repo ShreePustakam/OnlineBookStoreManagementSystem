@@ -29,11 +29,11 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cId;
 	@Column(length = 20)
-	private String name;
-	@Column(length = 20)
+	private String CustomerName;
+	@Column(length = 20,unique = true)
 	private String email;
-	@Column(length = 10)
-	private String pNo;
+	@Column(length = 10,unique = true)
+	private String phoneNo;
 	@Column(length = 16)
 	private String password;
 	
@@ -45,6 +45,19 @@ public class Customer {
     @JoinTable(name = "wish_list")
     private Set<Book> wishlist = new HashSet<>();
 	
+	public void addToCart(Book newBook) {
+		cart.add(newBook);
+	}
 	
-	 
+	public void removeFromCart(Book oldBook) {
+		cart.remove(oldBook);
+	}
+	
+	public void addToWishlist(Book newBook) {
+		wishlist.add(newBook);
+	}
+	
+	public void removeFromWishlist(Book oldBook) {
+		wishlist.remove(oldBook);
+	}
 }
