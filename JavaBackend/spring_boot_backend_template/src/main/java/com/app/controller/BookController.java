@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -91,6 +92,16 @@ public class BookController {
 	@DeleteMapping("/delete/{isbn}")
 	public ResponseEntity<?> deleteBook(@PathVariable String isbn){
 		return ResponseEntity.ok(bookService.deleteBook(isbn));
+	}
+	
+	//REST API to update book details(including stocks) 
+	@PutMapping
+	public ResponseEntity<?> updateBook( @RequestBody @Valid BookDTO book) {
+		BookDTO updatedBookDto = bookService.updateBook(book);
+		if(updatedBookDto !=null)
+			return ResponseEntity.ok(updatedBookDto);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 	
 

@@ -56,4 +56,19 @@ public class BookServiceImpl implements BookService {
 		return new ApiResponse("Deleted the book with ISBN : "+ isbn);
 	}
 	
+	//service method to to update book
+	@Override
+	public BookDTO updateBook(BookDTO book) {
+		Book persistBook = bookDao.findById(book.getIsbn()).orElseThrow(()->new ResourceNotFoundException("Unable to update!! ISBN not found!"));
+		persistBook.setTitle(book.getTitle());
+		persistBook.setAuthor(book.getAuthor());
+		persistBook.setDescription(book.getDescription());
+		persistBook.setPrice(book.getPrice());
+		persistBook.setBinding(book.getBinding());
+		persistBook.setGenre(book.getGenre());
+		persistBook.setPublishedDate(book.getPublishedDate());
+		persistBook.setStock(book.getStock());
+		return mapper.map(persistBook, BookDTO.class);
+	}
+	
 }

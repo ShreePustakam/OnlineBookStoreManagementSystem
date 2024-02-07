@@ -19,4 +19,6 @@ public interface BookService {
 	
 	public ApiResponse deleteBook(String isbn);
 	
+	public BookDTO updateBook( BookDTO book);
+	
 }
