@@ -71,4 +71,9 @@ public class BookServiceImpl implements BookService {
 		return mapper.map(persistBook, BookDTO.class);
 	}
 	
+	//service method to get the books having stocks less than specific value
+	@Override
+	public List<Book> getBooksByStock(int value) {
+		return bookDao.findByStockLessThanEqual(value) ;
+	}
 }

@@ -21,4 +21,6 @@ public interface BookService {
 	
 	public BookDTO updateBook( BookDTO book);
 	
+	public List<Book> getBooksByStock(int value);
+	
 }

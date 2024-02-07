@@ -14,4 +14,6 @@ public interface BookDao extends JpaRepository<Book, String> {
     
     @Query(value = "select * from books where title like %:word% or author like %:word%", nativeQuery = true)
 	List<Book> findByTitleOrAuthor(String word);
+    
+    List<Book> findByStockLessThanEqual(int value);
 }

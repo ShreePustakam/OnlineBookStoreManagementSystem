@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -104,5 +106,16 @@ public class BookController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 	
+	//REST API to get book lesser than specific number of stocks
+	@GetMapping("/stocks/{value}")
+	public ResponseEntity<?> getBooksByStock(@PathVariable @Positive(message = "number should be greater than zero!") // the value should not be less than zero
+	@Digits(integer = 5, fraction = 0, message = "must be whole number!") // it should be a whole no.
+	 int value){
+		List<Book> list = bookService.getBooksByStock(value);
+		if(!list.isEmpty())
+			return ResponseEntity.ok(list);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 
 }
