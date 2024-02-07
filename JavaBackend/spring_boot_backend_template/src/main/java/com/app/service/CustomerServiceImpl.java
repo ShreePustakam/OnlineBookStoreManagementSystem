@@ -1,0 +1,48 @@
+package com.app.service;
+
+import java.util.Optional;
+import java.util.Set;
+
+import javax.validation.Valid;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.custom_exceptions.ResourceNotFoundException;
+import com.app.dao.BookDao;
+import com.app.dao.CustomerDao;
+import com.app.dto.ApiResponse;
+import com.app.dto.CustomerDTO;
+import com.app.dto.CustomerPasswordDTO;
+import com.app.dto.EditCustomerDTO;
+import com.app.entities.Book;
+import com.app.entities.Customer;
+
+@Service
+@Transactional
+public class CustomerServiceImpl implements CustomerService {
+
+	@Autowired
+	private CustomerDao customerDao;
+	
+	@Autowired
+	private BookDao bookDao;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	@Override
+	public ApiResponse addCustomer(CustomerDTO newCustomer) {
+		Customer customer = mapper.map(newCustomer, Customer.class);
+		customerDao.save(customer);
+		return new ApiResponse("Customer Signed-Up Successfully");
+	}
+	
+	@Override
+	public CustomerDTO showProfile(String emailId) {
+		
+		return mapper.map(customerDao.findByEmail(emailId), CustomerDTO.class);
+	}
+}
