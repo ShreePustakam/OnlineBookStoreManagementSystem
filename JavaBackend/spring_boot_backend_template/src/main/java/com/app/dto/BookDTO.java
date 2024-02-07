@@ -40,4 +40,8 @@ public class BookDTO {
 	private Genre genre;
 	@Past
 	private LocalDate publishedDate;
+
+	@Positive(message = "number should be greater than zero!") // the value should not be less than zero
+	@Digits(integer = 5, fraction = 0, message = "must be whole number!") // it should be a whole no.
+	private int stock;
 }

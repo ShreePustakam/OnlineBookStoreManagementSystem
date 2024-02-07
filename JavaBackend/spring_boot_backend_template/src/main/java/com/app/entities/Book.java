@@ -22,6 +22,7 @@ import lombok.Setter;
 @Table(name = "books")
 public class Book {
 	@Id
+	@Column(length = 20)
 	private String isbn;
 	@Column(length = 40)
 	private String title;
@@ -42,5 +43,6 @@ public class Book {
 	@Lob
 	private byte[] image;
 	
-	
+	@Column
+	private int stock;
 }
