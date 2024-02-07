@@ -41,5 +41,11 @@ public class BookServiceImpl implements BookService {
 		return bookDao.findByTitleOrAuthor(word);
 	}
 
+	//service method to get specfic book by isbn
+	@Override
+	public Book getBook(String isbn) {
+		
+		return bookDao.findById(isbn).orElseThrow(() -> new ResourceNotFoundException("book with given isbn not found!!"));
+	}
 	
 }

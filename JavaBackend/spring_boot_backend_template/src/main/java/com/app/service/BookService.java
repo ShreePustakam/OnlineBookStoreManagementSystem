@@ -13,4 +13,6 @@ public interface BookService {
 	public List<Book> getBookByGenre(Genre genre);
 	
 	public List<Book> search(String word);
+	
+	public Book getBook(String isbn);
 }

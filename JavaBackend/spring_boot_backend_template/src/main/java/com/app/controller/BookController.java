@@ -76,7 +76,15 @@ public class BookController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 	
-
+	//REST API to get specific book by isbn number
+	@GetMapping("/{isbn}")
+	public ResponseEntity<?> getBook(@PathVariable String isbn){
+		Book book = bookService.getBook(isbn);
+		if(book !=null)
+			return ResponseEntity.ok(book);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 	
 	
 
