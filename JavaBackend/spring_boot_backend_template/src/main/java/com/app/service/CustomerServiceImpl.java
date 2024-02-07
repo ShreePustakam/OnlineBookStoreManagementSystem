@@ -56,4 +56,33 @@ public class CustomerServiceImpl implements CustomerService {
 		customerDao.save(customer);
 		return mapper.map(customer, EditCustomerDTO.class);
 	}
+	
+	@Override
+	public ApiResponse changePassword(@Valid Long cId, @Valid CustomerPasswordDTO newPaasword) {
+		Customer customer = customerDao.findById(cId)
+							.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
+		customer.setPassword(newPaasword.getPassword());
+		customerDao.save(customer);
+		return new ApiResponse("Password Changed Successfully");
+	}
+	
+	@Override
+	public ApiResponse addToCart(@Valid Long cId, @Valid String isbn) {
+		Customer customer = customerDao.findById(cId)
+							.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
+		Book book = bookDao.getReferenceById(isbn);
+		
+		customer.addToCart(book);
+		return new ApiResponse("Book added to your cart");
+	}
+	
+	@Override
+	public ApiResponse addToWishlist(@Valid Long cId, @Valid String isbn) {
+		Customer customer = customerDao.findById(cId)
+							.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
+		Book book = bookDao.getReferenceById(isbn);
+		
+		customer.addToWishlist(book);
+		return new ApiResponse("Book added to your Wishlist");
+	}
 }

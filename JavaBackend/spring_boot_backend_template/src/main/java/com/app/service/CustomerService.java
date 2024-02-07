@@ -17,4 +17,11 @@ public interface CustomerService {
 	CustomerDTO showProfile(String emailId);
 	
 	EditCustomerDTO editCustomer(Long cId, @Valid EditCustomerDTO editCustomer);
+	
+	ApiResponse changePassword(@Valid Long cId, @Valid CustomerPasswordDTO newPaasword);
+
+	ApiResponse addToCart(@Valid Long cId, @Valid String isbn);
+
+	ApiResponse addToWishlist(@Valid Long cId, @Valid String isbn);
+
 }
