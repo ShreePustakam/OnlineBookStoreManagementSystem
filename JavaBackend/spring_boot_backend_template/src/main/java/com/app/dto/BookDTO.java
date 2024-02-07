@@ -5,9 +5,11 @@ import java.time.LocalDate;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 import com.app.entities.Binding;

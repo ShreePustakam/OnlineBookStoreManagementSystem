@@ -1,6 +1,7 @@
 package com.app.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +23,7 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
 import com.app.dto.BookDTO;
 import com.app.entities.Book;
+import com.app.entities.Genre;
 import com.app.service.BookService;
 import com.app.service.ImageHandlingService;
 
@@ -32,7 +35,7 @@ public class BookController {
 	private BookService bookService;
 	@Autowired
 	private ImageHandlingService imgService;
-	
+	//REST API to add book 
 	@PostMapping(value="/add" )
 	public ResponseEntity<?> addBook( @RequestBody @Valid BookDTO b) {
 		System.out.println("controller----");
@@ -41,7 +44,7 @@ public class BookController {
 				.body(bookService.addBook(b));
 	}
 	
-	
+	//REST API to add image to a specific book
 	@PostMapping(value = "/images/{isbn}", 
 			consumes = "multipart/form-data") //consumes : required ONLY for swagger testing
 	public ResponseEntity<?> uploadImage(@PathVariable String isbn, 
@@ -51,5 +54,14 @@ public class BookController {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(imgService.uploadImage(isbn, imageFile));
 	}
-	
+
+	//REST API to get list of books by it's genre 
+	@GetMapping("/category/{genre}")
+	public ResponseEntity<?> getBooksByGenre(@PathVariable Genre genre){
+		List<Book> list = bookService.getBookByGenre(genre);
+		if(!list.isEmpty())
+			return ResponseEntity.ok(list);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
 }
