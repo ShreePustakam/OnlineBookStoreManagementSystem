@@ -25,4 +25,7 @@ public interface CustomerService {
 	ApiResponse addToWishlist(@Valid Long cId, @Valid String isbn);
 
 	Set<Book> displayCart(@Valid Long cId);
+	
+	Set<Book> displayWishlist(@Valid Long cId);
+
 }

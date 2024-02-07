@@ -68,4 +68,11 @@ public class CustomerController {
 	public ResponseEntity<?> customerCart(@PathVariable @Valid Long cId){
 		return ResponseEntity.status(HttpStatus.FOUND).body(customerService.displayCart(cId));
 	}
+	
+	// REST API to display wishlist
+	@GetMapping("/wishlist/{cId}")
+	public ResponseEntity<?> customerWishlist(@PathVariable @Valid Long cId){
+		return ResponseEntity.status(HttpStatus.FOUND).body(customerService.displayWishlist(cId));
+	}
+
 }
