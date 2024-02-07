@@ -11,4 +11,6 @@ public interface BookService {
 	public String addBook(BookDTO b );
 	
 	public List<Book> getBookByGenre(Genre genre);
+	
+	public List<Book> search(String word);
 }

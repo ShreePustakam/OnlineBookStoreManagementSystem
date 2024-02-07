@@ -64,4 +64,20 @@ public class BookController {
 		else
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
+	
+	
+	//REST API to search books by title or author name
+	@GetMapping("/search/{word}")
+	public ResponseEntity<?> search(@PathVariable String word){
+		List<Book> list = bookService.search(word);
+		if(!list.isEmpty())
+			return ResponseEntity.ok(list);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
+	
+
+	
+	
+
 }

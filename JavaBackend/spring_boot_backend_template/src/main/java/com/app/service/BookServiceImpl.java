@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.BookDao;
 import com.app.dto.BookDTO;
 import com.app.entities.Book;
@@ -34,5 +34,12 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getBookByGenre(Genre genre) {
 		return bookDao.findByGenre(genre);
 	}
+	
+	//service method to search the book by title or author
+	@Override
+	public List<Book> search(String word) {
+		return bookDao.findByTitleOrAuthor(word);
+	}
 
+	
 }
