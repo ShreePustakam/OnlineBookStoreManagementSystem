@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.BookDao;
+import com.app.dto.ApiResponse;
 import com.app.dto.BookDTO;
 import com.app.entities.Book;
 import com.app.entities.Genre;
@@ -46,6 +47,13 @@ public class BookServiceImpl implements BookService {
 	public Book getBook(String isbn) {
 		
 		return bookDao.findById(isbn).orElseThrow(() -> new ResourceNotFoundException("book with given isbn not found!!"));
+	}
+	
+	//service method to delete book by isbn
+	@Override
+	public ApiResponse deleteBook(String isbn) {
+		bookDao.deleteById(isbn);
+		return new ApiResponse("Deleted the book with ISBN : "+ isbn);
 	}
 	
 }
