@@ -38,4 +38,10 @@ public class CustomerController {
 	public ResponseEntity<?> showProfile(@PathVariable @Valid String emailId){
 		return ResponseEntity.status(HttpStatus.FOUND).body(customerService.showProfile(emailId));
 	}
+	
+	// REST API to edit customer details
+	@PutMapping("/edit/{cId}")
+	public ResponseEntity<?> editCustomer(@PathVariable @Valid Long cId,@RequestBody @Valid EditCustomerDTO editCustomer){
+		return ResponseEntity.status(HttpStatus.OK).body(customerService.editCustomer(cId,editCustomer));
+	}
 }

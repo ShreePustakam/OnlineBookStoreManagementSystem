@@ -45,4 +45,15 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return mapper.map(customerDao.findByEmail(emailId), CustomerDTO.class);
 	}
+	
+	@Override
+	public EditCustomerDTO editCustomer(Long cId, @Valid EditCustomerDTO editCustomer) {
+		Customer customer = customerDao.findById(cId)
+							.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
+		customer.setCustomerName(editCustomer.getCustomerName());
+		customer.setEmail(editCustomer.getEmail());
+		customer.setPhoneNo(editCustomer.getPhoneNo());
+		customerDao.save(customer);
+		return mapper.map(customer, EditCustomerDTO.class);
+	}
 }

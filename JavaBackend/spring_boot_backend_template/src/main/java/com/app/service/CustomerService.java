@@ -15,4 +15,6 @@ public interface CustomerService {
 	ApiResponse addCustomer(CustomerDTO newCustomer);
 
 	CustomerDTO showProfile(String emailId);
+	
+	EditCustomerDTO editCustomer(Long cId, @Valid EditCustomerDTO editCustomer);
 }
