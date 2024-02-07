@@ -85,4 +85,13 @@ public class CustomerServiceImpl implements CustomerService {
 		customer.addToWishlist(book);
 		return new ApiResponse("Book added to your Wishlist");
 	}
+	
+	@Override
+	public Set<Book> displayCart(@Valid Long cId) {
+		Customer customer = customerDao.findById(cId)
+				.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
+		Set<Book> cart = customer.getCart();
+		cart.size();
+		return cart;
+	}
 }
