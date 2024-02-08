@@ -28,4 +28,6 @@ public interface CustomerService {
 	
 	Set<Book> displayWishlist(@Valid Long cId);
 
+	CustomerDTO findProfile(@Valid Long cId);
+
 }

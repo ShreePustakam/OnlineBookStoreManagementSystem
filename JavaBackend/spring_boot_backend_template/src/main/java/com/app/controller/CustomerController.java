@@ -75,4 +75,9 @@ public class CustomerController {
 		return ResponseEntity.status(HttpStatus.FOUND).body(customerService.displayWishlist(cId));
 	}
 
+	// REST API to Find user by id
+	@GetMapping("/id/{cId}")
+	public ResponseEntity<?> findProfile(@PathVariable @Valid Long cId){
+		return ResponseEntity.status(HttpStatus.FOUND).body(customerService.findProfile(cId));
+	}
 }

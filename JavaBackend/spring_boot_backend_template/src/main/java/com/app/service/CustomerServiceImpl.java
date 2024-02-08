@@ -103,4 +103,9 @@ public class CustomerServiceImpl implements CustomerService {
 		wishlist.size();
 		return wishlist;
 	}
+	
+	@Override
+	public CustomerDTO findProfile(@Valid Long cId) {
+		return mapper.map(customerDao.findById(cId).orElseThrow(()-> new ResourceNotFoundException("Invalid Customer Id")),CustomerDTO.class);
+	}
 }
