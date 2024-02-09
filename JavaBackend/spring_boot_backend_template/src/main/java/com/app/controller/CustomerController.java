@@ -51,22 +51,10 @@ public class CustomerController {
 		return ResponseEntity.status(HttpStatus.OK).body(customerService.changePassword(cId,newPaasword));
 	}
 	
-	// REST API to add book to cart
-	@PostMapping("/cart/{cId}/{isbn}")
-	public ResponseEntity<?> addtoCart(@PathVariable @Valid Long cId,@PathVariable @Valid String isbn){
-		return ResponseEntity.status(HttpStatus.CREATED).body(customerService.addToCart(cId,isbn));
-	}
-	
 	// REST API to add book to wishlist
 	@PostMapping("/wishlist/{cId}/{isbn}")
 	public ResponseEntity<?> addtoWishlist(@PathVariable @Valid Long cId,@PathVariable @Valid String isbn){
 		return ResponseEntity.status(HttpStatus.CREATED).body(customerService.addToWishlist(cId,isbn));
-	}
-	
-	// REST API to display cart
-	@GetMapping("/cart/{cId}")
-	public ResponseEntity<?> customerCart(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(customerService.displayCart(cId));
 	}
 	
 	// REST API to display wishlist
