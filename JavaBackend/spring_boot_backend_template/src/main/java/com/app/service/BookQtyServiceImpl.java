@@ -54,4 +54,12 @@ public class BookQtyServiceImpl implements BookQtyService {
 			   .map(bookQty -> mapper.map(bookQty, BookQtyDTO.class))
 			   .collect(Collectors.toList());
 	}
+	
+	@Override
+	public ApiResponse removeFromCart(@Valid Long cId, @Valid String isbn) {
+		
+		bookQtyDao.deleteByCustomerCustomerIdAndBookIsbn(cId, isbn);
+		
+		return new ApiResponse("Book removed from your cart");
+	}
 }

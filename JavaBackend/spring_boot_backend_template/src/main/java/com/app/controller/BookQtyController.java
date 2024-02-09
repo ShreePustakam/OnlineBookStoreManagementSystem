@@ -38,4 +38,10 @@ public class BookQtyController {
 	public ResponseEntity<?> customerCart(@PathVariable @Valid Long cId){
 		return ResponseEntity.status(HttpStatus.FOUND).body(bookQtyService.displayCart(cId));
 	}
+	
+	// REST API to remove book from cart
+	@DeleteMapping("/cart/{cId}/{isbn}")
+	public ResponseEntity<?> removeFromCart(@PathVariable @Valid Long cId,@PathVariable @Valid String isbn){
+		return ResponseEntity.status(HttpStatus.OK).body(bookQtyService.removeFromCart(cId,isbn));
+	}
 }

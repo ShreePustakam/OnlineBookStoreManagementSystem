@@ -13,4 +13,7 @@ public interface BookQtyService {
 	ApiResponse addToCart(@Valid Long cId, @Valid String isbn);
 	
 	List<BookQtyDTO> displayCart(@Valid Long cId);
+	
+	ApiResponse removeFromCart(@Valid Long cId, @Valid String isbn);
+
 }
