@@ -66,15 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return new ApiResponse("Password Changed Successfully");
 	}
 	
-	@Override
-	public ApiResponse addToCart(@Valid Long cId, @Valid String isbn) {
-		Customer customer = customerDao.findById(cId)
-							.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
-		Book book = bookDao.getReferenceById(isbn);
-		
-		customer.addToCart(book);
-		return new ApiResponse("Book added to your cart");
-	}
+	
 	
 	@Override
 	public ApiResponse addToWishlist(@Valid Long cId, @Valid String isbn) {
@@ -86,14 +78,6 @@ public class CustomerServiceImpl implements CustomerService {
 		return new ApiResponse("Book added to your Wishlist");
 	}
 	
-	@Override
-	public Set<Book> displayCart(@Valid Long cId) {
-		Customer customer = customerDao.findById(cId)
-				.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
-		Set<Book> cart = customer.getCart();
-		cart.size();
-		return cart;
-	}
 	
 	@Override
 	public Set<Book> displayWishlist(@Valid Long cId) {
