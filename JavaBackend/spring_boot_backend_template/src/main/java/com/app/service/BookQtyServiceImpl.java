@@ -10,11 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.BookDao;
 import com.app.dao.BookQtyDao;
 import com.app.dao.CustomerDao;
 import com.app.dto.ApiResponse;
+import com.app.dto.BookQtyDTO;
 import com.app.entities.Book;
 import com.app.entities.BookQty;
 import com.app.entities.Customer;
@@ -46,5 +46,12 @@ public class BookQtyServiceImpl implements BookQtyService {
 		return new ApiResponse("Book added to your cart");
 	}
 	
-	
+	@Override
+	public List<BookQtyDTO> displayCart(@Valid Long cId) {
+		
+		return bookQtyDao.findByCustomerCustomerId(cId)
+			   .stream()
+			   .map(bookQty -> mapper.map(bookQty, BookQtyDTO.class))
+			   .collect(Collectors.toList());
+	}
 }

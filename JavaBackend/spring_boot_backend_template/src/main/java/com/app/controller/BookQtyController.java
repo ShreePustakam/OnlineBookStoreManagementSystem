@@ -33,5 +33,9 @@ public class BookQtyController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(bookQtyService.addToCart(cId,isbn));
 	}
 		
-	
+	// REST API to display cart
+	@GetMapping("/cart/{cId}")
+	public ResponseEntity<?> customerCart(@PathVariable @Valid Long cId){
+		return ResponseEntity.status(HttpStatus.FOUND).body(bookQtyService.displayCart(cId));
+	}
 }
