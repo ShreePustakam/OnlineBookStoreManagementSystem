@@ -31,5 +31,7 @@ public class BookQty {
 	@Column(columnDefinition ="int default 1" )
 	private int quantity;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
 }
