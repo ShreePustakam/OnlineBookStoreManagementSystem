@@ -1,27 +1,39 @@
 import './Styles/componentStyles.css';
-import {Link, Switch, Route} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-function MyNavbar1(){
+function Navbar1() {
     return (
-        <>
-        <nav className="navbar navTop">
-            <img src="/ProjectAssets/logo.png" alt="" className='logo-image' />
-            <div className="searchBar">
-            <form className="form-inline">
-                <input className="form-control" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-light" type="submit">Search</button>
-            </form>
-            </div>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">SignUp</Link>
-            <Link to="/profile">Profile</Link>
-            
-            
-            
+        <Navbar expand="lg" className="bg-body-tertiary">
+            <Container fluid>
+                <Navbar.Brand href="#">PUSTAKAM</Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Collapse id="navbarScroll">
+                    <Nav
+                        className="me-auto my-2 my-lg-0"
+                        style={{ maxHeight: '100px' }}
+                        navbarScroll
+                    >
 
-        </nav>
-        </>
-    )
+                        <Form className="d-flex">
+                            <Form.Control
+                                type="search"
+                                placeholder="Search"
+                                className="me-2"
+                                aria-label="Search"
+                            />
+                            <Button variant="outline-success">Search</Button>
+                        </Form>
+                        <Nav.Link href="#action1">Login</Nav.Link>
+                        <Nav.Link href="#action2">Sign Up</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    );
 }
 
-export default MyNavbar1;
+export default Navbar1;
