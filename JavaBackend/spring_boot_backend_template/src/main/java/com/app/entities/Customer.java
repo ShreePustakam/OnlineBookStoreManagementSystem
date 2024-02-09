@@ -27,7 +27,7 @@ import lombok.Setter;
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cId;
+	private Long customerId;
 	@Column(length = 20)
 	private String CustomerName;
 	@Column(length = 20,unique = true)
@@ -37,21 +37,21 @@ public class Customer {
 	@Column(length = 16)
 	private String password;
 	
-	@ManyToMany
-    @JoinTable(name = "cart")
-    private Set<Book> cart = new HashSet<>();
+//	@OneToMany
+//    @JoinTable(name = "cart")
+//    private Set<BookQty> cart = new HashSet<>();
 	
 	@ManyToMany
     @JoinTable(name = "wish_list")
     private Set<Book> wishlist = new HashSet<>();
 	
-	public void addToCart(Book newBook) {
-		cart.add(newBook);
-	}
-	
-	public void removeFromCart(Book oldBook) {
-		cart.remove(oldBook);
-	}
+//	public void addToCart(BookQty newBook) {
+//		cart.add(newBook);
+//	}
+//	
+//	public void removeFromCart(BookQty oldBook) {
+//		cart.remove(oldBook);
+//	}
 	
 	public void addToWishlist(Book newBook) {
 		wishlist.add(newBook);
