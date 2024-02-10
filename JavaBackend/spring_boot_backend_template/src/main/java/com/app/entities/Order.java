@@ -29,7 +29,7 @@ import lombok.Setter;
 public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long oId;
+	private Long orderId;
 	@Column
 	private int quantity;
 	@Column(length = 20)
