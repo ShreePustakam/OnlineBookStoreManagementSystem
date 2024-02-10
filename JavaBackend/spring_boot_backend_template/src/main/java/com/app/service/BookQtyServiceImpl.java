@@ -15,6 +15,7 @@ import com.app.dao.BookQtyDao;
 import com.app.dao.CustomerDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.BookQtyDTO;
+import com.app.dto.SetBookQtyDTO;
 import com.app.entities.Book;
 import com.app.entities.BookQty;
 import com.app.entities.Customer;
@@ -61,5 +62,14 @@ public class BookQtyServiceImpl implements BookQtyService {
 		bookQtyDao.deleteByCustomerCustomerIdAndBookIsbn(cId, isbn);
 		
 		return new ApiResponse("Book removed from your cart");
+	}
+	
+	@Override
+	public ApiResponse setQuantity(@Valid SetBookQtyDTO bookQty) {
+		
+		BookQty booksQty = bookQtyDao.findByCustomerCustomerIdAndBookIsbn(bookQty.getCustomerId(), bookQty.getIsbn());
+		booksQty.setQuantity(bookQty.getQuantity());
+		
+		return new ApiResponse("Quantity Set");
 	}
 }

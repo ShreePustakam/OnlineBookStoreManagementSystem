@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.SetBookQtyDTO;
 //import com.app.dto.SetBookQtyDTO;
 import com.app.service.BookQtyService;
 
@@ -44,4 +45,10 @@ public class BookQtyController {
 	public ResponseEntity<?> removeFromCart(@PathVariable @Valid Long cId,@PathVariable @Valid String isbn){
 		return ResponseEntity.status(HttpStatus.OK).body(bookQtyService.removeFromCart(cId,isbn));
 	}
+	
+	// REST API to set quantity of the book
+	@PutMapping("/cart/qty")
+	public ResponseEntity<?> setQuantity(@RequestBody @Valid SetBookQtyDTO bookQty){
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body(bookQtyService.setQuantity(bookQty));
+		}
 }
