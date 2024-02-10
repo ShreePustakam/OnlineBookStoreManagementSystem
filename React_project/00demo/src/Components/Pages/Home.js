@@ -7,6 +7,7 @@ function Home() {
       <>
          <Advertisments/>
          <SelfHelpSeries/>
+         <MangaSeries/>
          <BottomAds/>   
       </>
    )
