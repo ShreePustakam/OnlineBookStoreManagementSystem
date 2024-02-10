@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +20,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "book_isbn", "customer_id" }) })
 public class BookQty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
