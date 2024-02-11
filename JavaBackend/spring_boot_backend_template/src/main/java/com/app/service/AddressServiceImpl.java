@@ -36,4 +36,9 @@ public class AddressServiceImpl implements AddressService {
 		addressDao.save(address);
 		return new ApiResponse("Address Saved Successfully");
 	}
+	
+	@Override
+	public SaveAddressDTO showAddress(@Valid Long cId) {
+		return mapper.map(addressDao.findByCustomerCustomerId(cId), SaveAddressDTO.class);
+	}
 }

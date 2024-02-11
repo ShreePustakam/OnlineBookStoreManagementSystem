@@ -9,4 +9,6 @@ public interface AddressService {
 
 	ApiResponse saveAddress(@Valid SaveAddressDTO addressDto);
 
+	SaveAddressDTO showAddress(@Valid Long cId);
+
 }

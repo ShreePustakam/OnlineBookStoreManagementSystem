@@ -6,4 +6,5 @@ import com.app.entities.Address;
 
 public interface AddressDao extends JpaRepository<Address, Long> {
 
+	public Address findByCustomerCustomerId(Long cId);
 }
