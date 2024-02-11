@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -30,8 +29,7 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderId;
-	@Column
-	private int quantity;
+	
 	@Column(length = 20)
 	@Enumerated(EnumType.STRING)
 	private OStatus oStatus;
@@ -39,11 +37,8 @@ public class Order {
 	private LocalDate oDate;
 	@Column
 	private LocalDate dDate;
-	
-	@ManyToMany
-	//@JoinColumn(name = "orders_books", joinColumns = @JoinColumn(name = "project_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "emp_id", nullable = false))
-	private Set<Book> isbns = new HashSet<>();
-
+	@Column
+	private double totalAmount;
 	
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
