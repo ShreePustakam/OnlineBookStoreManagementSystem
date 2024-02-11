@@ -1,0 +1,6 @@
+delimiter //    
+CREATE procedure updateStocks(bookIsbn varchar(13), value int)   
+begin 
+   	update books set stock = stock + value where isbn = bookIsbn;
+end; // 
+delimiter ;
