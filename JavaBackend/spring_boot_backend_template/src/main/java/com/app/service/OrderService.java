@@ -11,5 +11,7 @@ import com.app.entities.OrderQty;
 public interface OrderService {
 
 	ApiResponse placeOrder(Long cId);
+	
+	ApiResponse cancelOrder(Long oId);
 
 }

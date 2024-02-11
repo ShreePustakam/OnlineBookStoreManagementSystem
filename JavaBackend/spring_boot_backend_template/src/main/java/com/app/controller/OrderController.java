@@ -30,5 +30,9 @@ public class OrderController {
 		return ResponseEntity.ok(orderService.placeOrder(cId));
 	}
 	
-	
+	//REST API to cancel order 
+	@PutMapping("/{oId}")
+	public ResponseEntity<?> cancelOrder(@PathVariable Long oId){
+		return ResponseEntity.ok(orderService.cancelOrder(oId));
+	}
 }

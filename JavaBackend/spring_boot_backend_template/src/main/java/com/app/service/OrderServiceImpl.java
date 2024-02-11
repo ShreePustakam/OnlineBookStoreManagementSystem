@@ -84,7 +84,20 @@ public class OrderServiceImpl implements OrderService {
 		return new ApiResponse("order placed Successfully !! Order ID : "+ order.getOrderId());
 	}
 	
-
+	// service method to cancle order
+	@Override
+	public ApiResponse cancelOrder(Long oId) {
+		Order order = orderDao.findById(oId).orElseThrow(()-> new ResourceNotFoundException("Order/OrderId does not exists !!"));
+		if(order.getOStatus()==OStatus.CANCELLED)
+			return new ApiResponse("Order("+ oId +") has already "+ "CANCELLED" );
+		List<OrderQty> orderQtys= orderQtyDao.findByOrderOrderId(oId);
+		for(OrderQty orderQty : orderQtys) {
+			//stock added back to the book stock
+			bookDao.updateBookStock(  orderQty.getBook().getIsbn(), orderQty.getQuantity());
+		}
+		order.setOStatus(OStatus.CANCELLED);
+		return new ApiResponse("Order("+ oId +") has been CANCELLED");
+	}
 	
 	
 	
