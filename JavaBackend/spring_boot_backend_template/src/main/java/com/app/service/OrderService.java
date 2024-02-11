@@ -13,5 +13,7 @@ public interface OrderService {
 	ApiResponse placeOrder(Long cId);
 	
 	ApiResponse cancelOrder(Long oId);
+	
+	ApiResponse changeOrderStatus(OStatus oStatus, Long oId);
 
 }

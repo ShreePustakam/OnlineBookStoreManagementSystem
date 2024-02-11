@@ -35,4 +35,10 @@ public class OrderController {
 	public ResponseEntity<?> cancelOrder(@PathVariable Long oId){
 		return ResponseEntity.ok(orderService.cancelOrder(oId));
 	}
+	
+	//REST API to change order status
+	@PutMapping("/{oStatus}/{oId}")
+	public ResponseEntity<?> changeOrderStatus(@PathVariable OStatus oStatus, @PathVariable Long oId){
+		return ResponseEntity.ok(orderService.changeOrderStatus(oStatus,oId));
+	}
 }
