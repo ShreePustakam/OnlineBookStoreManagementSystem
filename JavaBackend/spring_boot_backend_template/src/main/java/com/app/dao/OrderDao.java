@@ -7,5 +7,5 @@ import com.app.entities.Customer;
 import java.util.List;
 
 public interface OrderDao extends JpaRepository<Order, Long> {
-		
+	List<Order> findByCustomerCustomerId(Long customerId);
 }

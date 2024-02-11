@@ -109,7 +109,11 @@ public class OrderServiceImpl implements OrderService {
 		return new ApiResponse("Order("+ oId +") has been "+ oStatus.toString());
 	}
 	
-	
+	//service method to get all orders of specific customer
+	@Override
+	public List<OrderDTO> getAllOrders(Long cId) {
+		return  orderDao.findByCustomerCustomerId(cId).stream().map(order -> mapper.map(order, OrderDTO.class)).collect(Collectors.toList());	
+	}
 	
 	
 	

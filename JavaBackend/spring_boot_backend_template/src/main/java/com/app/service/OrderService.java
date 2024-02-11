@@ -15,5 +15,7 @@ public interface OrderService {
 	ApiResponse cancelOrder(Long oId);
 	
 	ApiResponse changeOrderStatus(OStatus oStatus, Long oId);
+	
+	List<OrderDTO> getAllOrders(Long cId);
 
 }

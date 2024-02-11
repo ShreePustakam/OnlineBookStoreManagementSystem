@@ -41,4 +41,14 @@ public class OrderController {
 	public ResponseEntity<?> changeOrderStatus(@PathVariable OStatus oStatus, @PathVariable Long oId){
 		return ResponseEntity.ok(orderService.changeOrderStatus(oStatus,oId));
 	}
+	
+	//REST API to get all orders of a customer
+	@GetMapping("/{cId}")
+	public ResponseEntity<?> getAllOrders(@PathVariable Long cId){
+		List<OrderDTO> list =	orderService.getAllOrders(cId);
+		if(!list.isEmpty())
+			return ResponseEntity.ok(list);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiResponse("You have no orders yet!!"));
+	}
 }
