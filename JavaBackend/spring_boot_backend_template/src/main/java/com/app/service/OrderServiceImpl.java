@@ -120,6 +120,12 @@ public class OrderServiceImpl implements OrderService {
 	public List<BookQtyDTO> getAllBooksOfOrder(Long oId) {
 		return orderQtyDao.findByOrderOrderId(oId).stream().map(orderQty -> mapper.map(orderQty, BookQtyDTO.class)).collect(Collectors.toList());
 	}
+
+	//service method to get all orders of all customers
+	@Override
+	public List<OrderDTO> getAll() {
+		return orderDao.findAll().stream().map(order -> mapper.map(order, OrderDTO.class)).collect(Collectors.toList());
+	}
 	
 	
 	

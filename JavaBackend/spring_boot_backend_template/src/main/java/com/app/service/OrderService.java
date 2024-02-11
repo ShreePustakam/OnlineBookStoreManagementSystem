@@ -20,4 +20,6 @@ public interface OrderService {
 	
 	List<BookQtyDTO> getAllBooksOfOrder(Long oId);
 
+	List<OrderDTO> getAll();
+
 }

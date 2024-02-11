@@ -61,4 +61,14 @@ public class OrderController {
 		else
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiResponse("No books in order!!"));
 	}
+	
+	//REST API to get all orders of all customers(for Admin)
+	@GetMapping
+	public ResponseEntity<?> getAll(){
+		List<OrderDTO> list =	orderService.getAll();
+		if(!list.isEmpty())
+			return ResponseEntity.ok(list);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiResponse("No orders yet!!"));
+	}
 }
