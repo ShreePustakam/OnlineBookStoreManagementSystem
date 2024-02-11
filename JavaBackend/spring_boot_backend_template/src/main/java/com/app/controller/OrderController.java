@@ -51,4 +51,14 @@ public class OrderController {
 		else
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiResponse("You have no orders yet!!"));
 	}
+	
+	//REST API TO get all books of specific order(also for bill generation)
+	@GetMapping("/books/{oId}")
+	public ResponseEntity<?> getAllBooksOfOrder(@PathVariable Long oId){
+		List<BookQtyDTO> list=	orderService.getAllBooksOfOrder(oId);
+		if(!list.isEmpty())
+			return ResponseEntity.ok(list);
+		else
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiResponse("No books in order!!"));
+	}
 }

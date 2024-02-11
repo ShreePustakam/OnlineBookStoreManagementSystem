@@ -17,5 +17,7 @@ public interface OrderService {
 	ApiResponse changeOrderStatus(OStatus oStatus, Long oId);
 	
 	List<OrderDTO> getAllOrders(Long cId);
+	
+	List<BookQtyDTO> getAllBooksOfOrder(Long oId);
 
 }
