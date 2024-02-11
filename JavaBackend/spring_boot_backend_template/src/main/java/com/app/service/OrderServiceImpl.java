@@ -47,7 +47,42 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	BookDao bookDao;
 	
-	
+	//service method to place order
+	@Override
+	public ApiResponse placeOrder(Long cId) {
+		// getting the list of book with quantity of specific customer
+		List<BookQty> bookQtys =bookQtyDao.findByCustomerCustomerId(cId); //no unique in the bookQtys;
+		//check for cart empty condition
+		if(bookQtys.isEmpty())
+			return new ApiResponse("No books in the cart !!!");
+		//new order object transient -> persistent
+		Order order = orderDao.save(new Order(null,OStatus.ORDERED,LocalDate.now(),LocalDate.now().plusDays(5),0,customerDao.getReferenceById(cId)));
+		//copied all the book quantity from customers cart to the order quantity list
+		List<OrderQty> orderQtys= new ArrayList<OrderQty>();
+		bookQtys.forEach(bookQty ->  orderQtys.add(new OrderQty(null, bookQty.getBook(), bookQty.getQuantity(), order)));
+		double total =0;
+			for(BookQty bookQty : bookQtys) { 
+				
+				// total order amount is calculated
+				total += (bookQty.getBook().getPrice() * bookQty.getQuantity());
+				// update book stocks
+				if(bookQty.getBook().getStock()>=bookQty.getQuantity())
+					//stock available STORED PROCEDURE CALLED (updateStocks)
+					bookDao.updateBookStock(bookQty.getBook().getIsbn(), -bookQty.getQuantity());
+				else {
+					// if stocks not sufficient then throw error
+					throw new ResourceNotFoundException("Insufficient stock available for : "+ bookQty.getBook().getTitle() + "STOCK LEFT : " + bookQty.getBook().getStock());
+				}
+			}		
+		//set the order total in the persistent order object
+		order.setTotalAmount(total);
+		//all the order quantity is saved int the database
+		orderQtyDao.saveAll(orderQtys);
+		// empty the cart after ordered
+		bookQtyDao.deleteAll(bookQtys);
+		
+		return new ApiResponse("order placed Successfully !! Order ID : "+ order.getOrderId());
+	}
 	
 
 	

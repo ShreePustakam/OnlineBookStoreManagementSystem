@@ -24,7 +24,11 @@ public class OrderController {
 	OrderService orderService;
 	
 	
-	
+	//REST API to place order for the books present in the customer's cart
+	@PostMapping("/{cId}")
+	public ResponseEntity<?> placeOrder(@PathVariable Long cId){
+		return ResponseEntity.ok(orderService.placeOrder(cId));
+	}
 	
 	
 }
