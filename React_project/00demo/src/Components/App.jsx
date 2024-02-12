@@ -1,8 +1,8 @@
 import Home from "./Pages/Home";
 import Book from "./Book";
 import {Link, Switch, Route} from 'react-router-dom';
-import MyNavbar1 from "./Navbar1";
-import MyNavbar2 from "./Navbar2";
+import Navbar1 from "./Navbar1";
+import Navbar2 from "./Navbar2";
 import Footer from "./Footer";
 import Login from "./Pages/Login"
 import SignUp from "./Pages/SignUp";
@@ -17,8 +17,8 @@ import UserProfile from "./Pages/UserProfile";
 function App() {
     return (  
         <>
-        <MyNavbar1/>
-        <MyNavbar2/>
+        <Navbar1/>
+        <Navbar2/>
         <Switch>
                         <Route path="/" component={Home} exact />
                         <Route path="/home" component={Home} exact />
