@@ -1,5 +1,5 @@
 package com.app.entities;
 
 public enum Genre {
-	FRICTION, HORROR, NOVEL
+	FICTION, HORROR, FANTASY, MANGA, SELFHELP
 }

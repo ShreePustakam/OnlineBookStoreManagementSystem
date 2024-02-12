@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import com.app.dto.ApiResponse;
 import com.app.dto.BookQtyDTO;
+import com.app.dto.SetBookQtyDTO;
 //import com.app.dto.SetBookQtyDTO;
 
 public interface BookQtyService {
@@ -16,4 +17,5 @@ public interface BookQtyService {
 	
 	ApiResponse removeFromCart(@Valid Long cId, @Valid String isbn);
 
+	ApiResponse setQuantity(@Valid SetBookQtyDTO bookQty);
 }

@@ -3,18 +3,20 @@ package com.app.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import com.app.dao.BookDao;
 import com.app.dao.BookQtyDao;
 import com.app.dao.CustomerDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.BookQtyDTO;
+import com.app.dto.SetBookQtyDTO;
 import com.app.entities.Book;
 import com.app.entities.BookQty;
 import com.app.entities.Customer;
@@ -61,5 +63,14 @@ public class BookQtyServiceImpl implements BookQtyService {
 		bookQtyDao.deleteByCustomerCustomerIdAndBookIsbn(cId, isbn);
 		
 		return new ApiResponse("Book removed from your cart");
+	}
+	
+	@Override
+	public ApiResponse setQuantity(@Valid SetBookQtyDTO bookQty) {
+		
+		BookQty booksQty = bookQtyDao.findByCustomerCustomerIdAndBookIsbn(bookQty.getCustomerId(), bookQty.getIsbn());
+		booksQty.setQuantity(bookQty.getQuantity());
+		
+		return new ApiResponse("Quantity Set");
 	}
 }
