@@ -5,9 +5,10 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import mangaBooks from "../mangaBooksArr";
+import '../Components/Styles/allSeriesStyle.css';
 
 function MangaSeries(props) {
-    return <div>
+    return <div className="series">
         <h1>Manga</h1>
         <Container>
         <Row>

@@ -1,5 +1,3 @@
-import '../Styles/UserProfile.css';
-
 function UserProfile()
 {
     return( 

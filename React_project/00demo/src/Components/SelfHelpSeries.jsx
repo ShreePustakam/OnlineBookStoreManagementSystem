@@ -5,9 +5,10 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import selfHelpBooks from "../selfHelpBooksArr";
+import '../Components/Styles/allSeriesStyle.css';
 
 function SelfHelpSeries(props) {
-    return <div>
+    return <div className="series">
         <h1>Self Help</h1>
         <Container>
         <Row>

@@ -1,15 +1,15 @@
-import './Styles/componentStyles.css';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import '../Components/Styles/logoFontStyle.css';
 
 function Navbar1() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#">PUSTAKAM</Navbar.Brand>
+                <Navbar.Brand href="#" className='logo-font' >PUSTAKAM</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

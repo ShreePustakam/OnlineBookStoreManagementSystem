@@ -1,4 +1,3 @@
-import './Styles/bookDiv.css';
 //import axios from 'axios';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';

@@ -1,4 +1,3 @@
-import './Styles/cart.css'
 function Cart() {
 
 //https://mdbootstrap.com/docs/standard/extended/shopping-carts/

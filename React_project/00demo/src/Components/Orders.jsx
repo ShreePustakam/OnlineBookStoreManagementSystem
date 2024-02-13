@@ -1,5 +1,3 @@
-import './Styles/orders.css';
-// import Rating from './Rating';
 function Orders() {
     return ( 
         <>

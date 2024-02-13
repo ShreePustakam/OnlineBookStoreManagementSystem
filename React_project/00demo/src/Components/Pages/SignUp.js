@@ -1,4 +1,3 @@
-import '../Styles/SignUp.css';
 function SignUp()
 {
     return(

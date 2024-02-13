@@ -1,5 +1,3 @@
-import './Styles/componentStyles.css'
-
 function Footer() {
   return ( 
       <>

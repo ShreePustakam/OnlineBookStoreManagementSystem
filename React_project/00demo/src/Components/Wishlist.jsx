@@ -1,5 +1,3 @@
-
-import './Styles/wishlist.css'
 function Wishlist() {
     return ( 
         <>

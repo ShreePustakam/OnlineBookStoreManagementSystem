@@ -5,9 +5,10 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import fantasyBooks from "../fanatasyBooksArr";
+import '../Components/Styles/allSeriesStyle.css';
 
 function FantasySeries(props) {
-    return <div>
+    return <div className="series">
         <h1>Fantasy</h1>
         <Container>
         <Row>
