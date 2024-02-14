@@ -1,6 +1,5 @@
 package com.app.dto;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,17 +14,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerDTO {
-	
-	@NotBlank
-	private String customerName;
-	
-	@NotBlank
-	private String email;
-	
-	@NotBlank
-	private String phoneNo;
-	
+public class UserPasswordDTO {
+
 	@NotBlank
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;

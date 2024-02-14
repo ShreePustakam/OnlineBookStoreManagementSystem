@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "book_isbn", "customer_id" }) })
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "book_isbn", "user_id" }) })
 public class BookQty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +35,6 @@ public class BookQty {
 	private int quantity;
 	
 	@ManyToOne
-	@JoinColumn(name = "customer_id")
-	private Customer customer;
+	@JoinColumn(name = "user_id")
+	private User user;
 }

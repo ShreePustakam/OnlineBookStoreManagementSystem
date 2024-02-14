@@ -20,7 +20,7 @@ public class SetBookQtyDTO {
 	private String isbn;
 	
 	@NotNull
-	private Long customerId;
+	private Long userId;
 	
 	@NotNull
 	private int quantity;

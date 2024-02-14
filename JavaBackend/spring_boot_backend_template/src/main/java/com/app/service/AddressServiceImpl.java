@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.AddressDao;
-import com.app.dao.CustomerDao;
+import com.app.dao.UserDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.EditAddressDTO;
 import com.app.dto.SaveAddressDTO;
 import com.app.entities.Address;
-import com.app.entities.Customer;
+import com.app.entities.User;
 
 @Service
 @Transactional
@@ -23,7 +23,7 @@ public class AddressServiceImpl implements AddressService {
 	private AddressDao addressDao;
 	
 	@Autowired
-	private CustomerDao customerDao;
+	private UserDao userDao;
 	
 	@Autowired
 	private ModelMapper mapper;
@@ -31,21 +31,21 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public ApiResponse saveAddress(@Valid SaveAddressDTO addressDto) {
 		
-		Customer customer = customerDao.getReferenceById(addressDto.getCustomerId());
+		User user = userDao.getReferenceById(addressDto.getUserId());
 		Address address = mapper.map(addressDto, Address.class);
-		address.setCustomer(customer);
+		address.setUser(user);
 		addressDao.save(address);
 		return new ApiResponse("Address Saved Successfully");
 	}
 	
 	@Override
 	public SaveAddressDTO showAddress(@Valid Long cId) {
-		return mapper.map(addressDao.findByCustomerCustomerId(cId), SaveAddressDTO.class);
+		return mapper.map(addressDao.findByUserUserId(cId), SaveAddressDTO.class);
 	}
 	
 	@Override
-	public ApiResponse editAddress(@Valid Long cId,@Valid EditAddressDTO addressDto) {
-		Address address = addressDao.findByCustomerCustomerId(cId);
+	public ApiResponse editAddress(@Valid Long uId,@Valid EditAddressDTO addressDto) {
+		Address address = addressDao.findByUserUserId(uId);
 		address.setStreetArea(addressDto.getStreetArea());
 		address.setCity(addressDto.getCity());
 		address.setState(addressDto.getState());

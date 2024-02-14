@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import com.app.custom_exceptions.ResourceNotFoundException;
 import com.app.dao.BookDao;
 import com.app.dao.BookQtyDao;
-import com.app.dao.CustomerDao;
+import com.app.dao.UserDao;
 import com.app.dao.OrderDao;
 import com.app.dao.OrderQtyDao;
 import com.app.dto.ApiResponse;
@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
 	OrderDao orderDao;
 	
 	@Autowired
-	CustomerDao customerDao;
+	UserDao userDao;
 	
 	@Autowired
 	ModelMapper mapper;
@@ -51,12 +51,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public ApiResponse placeOrder(Long cId) {
 		// getting the list of book with quantity of specific customer
-		List<BookQty> bookQtys =bookQtyDao.findByCustomerCustomerId(cId); //no unique in the bookQtys;
+		List<BookQty> bookQtys =bookQtyDao.findByUserUserId(cId); //no unique in the bookQtys;
 		//check for cart empty condition
 		if(bookQtys.isEmpty())
 			return new ApiResponse("No books in the cart !!!");
 		//new order object transient -> persistent
-		Order order = orderDao.save(new Order(null,OStatus.ORDERED,LocalDate.now(),LocalDate.now().plusDays(5),0,customerDao.getReferenceById(cId)));
+		Order order = orderDao.save(new Order(null,OStatus.ORDERED,LocalDate.now(),LocalDate.now().plusDays(5),0,userDao.getReferenceById(cId)));
 		//copied all the book quantity from customers cart to the order quantity list
 		List<OrderQty> orderQtys= new ArrayList<OrderQty>();
 		bookQtys.forEach(bookQty ->  orderQtys.add(new OrderQty(null, bookQty.getBook(), bookQty.getQuantity(), order)));
@@ -111,8 +111,8 @@ public class OrderServiceImpl implements OrderService {
 	
 	//service method to get all orders of specific customer
 	@Override
-	public List<OrderDTO> getAllOrders(Long cId) {
-		return  orderDao.findByCustomerCustomerId(cId).stream().map(order -> mapper.map(order, OrderDTO.class)).collect(Collectors.toList());	
+	public List<OrderDTO> getAllOrders(Long uId) {
+		return  orderDao.findByUserUserId(uId).stream().map(order -> mapper.map(order, OrderDTO.class)).collect(Collectors.toList());	
 	}
 	
 	//service method to get all books of specific order

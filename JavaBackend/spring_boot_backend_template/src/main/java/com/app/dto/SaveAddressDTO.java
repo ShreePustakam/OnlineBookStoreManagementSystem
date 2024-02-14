@@ -21,5 +21,5 @@ public class SaveAddressDTO {
 	
 	private int pincode;
 	
-	private Long customerId;
+	private Long userId;
 }

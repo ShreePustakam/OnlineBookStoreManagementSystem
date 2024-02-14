@@ -39,8 +39,8 @@ public class Address {
 	private int pincode;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="c_id",nullable=false)
+	@JoinColumn(name="u_id",nullable=false)
 	@MapsId
-	private Customer customer;
+	private User user;
 	
 }

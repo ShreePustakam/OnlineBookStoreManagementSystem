@@ -13,19 +13,19 @@ import org.springframework.stereotype.Service;
 
 import com.app.dao.BookDao;
 import com.app.dao.BookQtyDao;
-import com.app.dao.CustomerDao;
+import com.app.dao.UserDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.BookQtyDTO;
 import com.app.dto.SetBookQtyDTO;
 import com.app.entities.Book;
 import com.app.entities.BookQty;
-import com.app.entities.Customer;
+import com.app.entities.User;
 
 @Service
 @Transactional
 public class BookQtyServiceImpl implements BookQtyService {
 	@Autowired
-	private CustomerDao customerDao;
+	private UserDao userDao;
 	
 	@Autowired
 	private BookDao bookDao;
@@ -38,12 +38,12 @@ public class BookQtyServiceImpl implements BookQtyService {
 	
 	@Override
 	public ApiResponse addToCart(@Valid Long cId, @Valid String isbn) {
-		Customer customer = customerDao.getReferenceById(cId);
+		User user = userDao.getReferenceById(cId);
 		Book book = bookDao.getReferenceById(isbn);
 		BookQty cartItem = new BookQty();
 		cartItem.setBook(book);
 		cartItem.setQuantity(1);
-		cartItem.setCustomer(customer);
+		cartItem.setUser(user);
 		bookQtyDao.save(cartItem);
 		return new ApiResponse("Book added to your cart");
 	}
@@ -51,7 +51,7 @@ public class BookQtyServiceImpl implements BookQtyService {
 	@Override
 	public List<BookQtyDTO> displayCart(@Valid Long cId) {
 		
-		return bookQtyDao.findByCustomerCustomerId(cId)
+		return bookQtyDao.findByUserUserId(cId)
 			   .stream()
 			   .map(bookQty -> mapper.map(bookQty, BookQtyDTO.class))
 			   .collect(Collectors.toList());
@@ -60,7 +60,7 @@ public class BookQtyServiceImpl implements BookQtyService {
 	@Override
 	public ApiResponse removeFromCart(@Valid Long cId, @Valid String isbn) {
 		
-		bookQtyDao.deleteByCustomerCustomerIdAndBookIsbn(cId, isbn);
+		bookQtyDao.deleteByUserUserIdAndBookIsbn(cId, isbn);
 		
 		return new ApiResponse("Book removed from your cart");
 	}
@@ -68,7 +68,7 @@ public class BookQtyServiceImpl implements BookQtyService {
 	@Override
 	public ApiResponse setQuantity(@Valid SetBookQtyDTO bookQty) {
 		
-		BookQty booksQty = bookQtyDao.findByCustomerCustomerIdAndBookIsbn(bookQty.getCustomerId(), bookQty.getIsbn());
+		BookQty booksQty = bookQtyDao.findByUserUserIdAndBookIsbn(bookQty.getUserId(), bookQty.getIsbn());
 		booksQty.setQuantity(bookQty.getQuantity());
 		
 		return new ApiResponse("Quantity Set");

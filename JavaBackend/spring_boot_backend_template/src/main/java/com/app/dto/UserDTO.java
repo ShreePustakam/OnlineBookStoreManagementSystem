@@ -2,6 +2,9 @@ package com.app.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,10 +14,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EditCustomerDTO {
+public class UserDTO {
 	
 	@NotBlank
-	private String customerName;
+	private String userName;
 	
 	@NotBlank
 	private String email;
@@ -22,4 +25,7 @@ public class EditCustomerDTO {
 	@NotBlank
 	private String phoneNo;
 	
+	@NotBlank
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private String password;
 }
