@@ -1,7 +1,7 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import imageLibrary from '../adsImagesArr';
-import '../Components/Styles/adsImagesStyle.css';
+import '../Styles/adsImagesStyle.css';
 
 function Advertisments() {
   return (

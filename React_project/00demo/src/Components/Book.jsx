@@ -1,57 +1,34 @@
 //import axios from 'axios';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';
-
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import '../Styles/bookDisplayStyle.css';
 
 function Book() {
-
-  const [Book ] = useState({"Image":"http://172.18.4.178:3000/book1.jpg","Title":"Description Title","Desc":"Your description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Nulla sagitis mi vitae nunc lobortis, ac fermentum libero fringilla. Proin eleifendjusto vel ex euismod, non tincidunt dolor luctus.","Price":"200"});
-  //const [Books, setBooks ] = useState({"Image":"","Title":"","Desc":"","Price":""});
-    return ( 
-        <>
-      <div className="container  DivStyle">
-  <div className="row">
-    
-    <div className="col-md-6">
-      <img src ={Book.Image} className="img-fluid"/>
-    </div>
-
-   
-    <div className="col-md-6">
-      <h2 id='BookTitle'>{Book.Title}</h2>
-        <div className='DivDesc' >
-        <p id='BookDesc'>{Book.Desc} 
-      </p>
-        </div>
-
-      <div className='transparent-div col-md-10 relative-bottom'>
-      <button className="btn btn-success my-2 my-sm-0 mx-sm-3 btn-lg" type="submit">Buy Now</button>
-      <h5 id='DiscountPrice' className="text-left text-dark mx-sm-3 fs-3 text-decoration-line-through">₹ {Book.Price*2}</h5>
-      <h3 id='BookPrice' className="text-left text-dark font-weight-bold mx-sm-3 fs-1">₹ {Book.Price}</h3>
-      <button className="btn btn-warning my-2 my-sm-0 mx-sm-3" type="submit">Add to cart</button>
-      <button className="btn btn-primary my-2 my-sm-0 mx-sm-3" type="submit">Add to wishlist</button>
-      
-      
-
+return(
+  <Container className='bookDisplay'>
+    <Card className='bookCard'>
+    <Row>
+      <Col>
+      <img src="/ProjectAssets/SelfHelp/AtomicHabits.jpg" alt="" className='bookImg'/>
+      </Col>
+      <Col>
+      <div>
+        <h1>Title</h1>
+        <h5>Author</h5>
+        <p>There are many var=tructures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32etc.</p>
+        
+        <h3>Price: $200</h3>
+        <Button variant="primary" className='bookBtn'>Add to Cart</Button>
       </div>
-    </div>
-  </div>
-</div>
-    {/* <div className="image-description-container">
-      <div className="image-container">
-        <img src='http://localhost:3000/book1.jpg' alt="Description" />
-      </div>
-      <div className="description-container">
-        <p>Ankur Warikoo is an entrepreneur and content creator whose deep, witty and brutally honest thoughts on success and failure, money and investing, self-awareness and personal relationships have made him one of India’s top personal brands. In his first book, Ankur puts together the key ideas that have fuelled his journey – one that began with him wanting to be a space engineer and ended with him creating content that has been seen and read by millions. His thoughts range from the importance of creating habits for long-term success to the foundations of money management, from embracing and accepting failure to the real truth about learning empathy. This is a book to be read, and reread, a book whose lines you will underline and think about again and again, a book you will give your family and friends and strangers. Ankur hopes for this book to become the most gifted book ever!</p>
-      </div> */}
-    
-            
-
-
-               
-                
-        </>
-     );
+      </Col>
+    </Row>
+    </Card>
+  </Container>
+  );
 }
 
 export default Book;

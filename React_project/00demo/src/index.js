@@ -5,9 +5,7 @@ import ReactDOM from 'react-dom/client';
 // import '../node_modules/bootstrap/dist/js/'
 //import Launcher from './Launcher';
 import { BrowserRouter } from 'react-router-dom';
-import Home from './Components/Pages/Home';
 import { Route , Routes, Switch } from 'react-router-dom';
-import Book from './Components/Book';
 import App from './Components/App';
 import '../node_modules/bootstrap/dist/js/bootstrap'
 

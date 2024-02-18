@@ -1,0 +1,16 @@
+.user{
+    background-color: white;
+    padding: 10%;
+    margin: 8%;
+}
+
+input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    padding: 2%;
+}
+
+.form-title{
+    margin-bottom: 50px;
+}

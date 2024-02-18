@@ -3,13 +3,14 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import '../Components/Styles/logoFontStyle.css';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import '../Styles/navbarStyle.css';
 
 function Navbar1() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary" style={{backgroundColor:"#40A2E3"}}>
             <Container fluid>
-                <Navbar.Brand href="#" className='logo-font' >PUSTAKAM</Navbar.Brand>
+                <Navbar.Brand href='/Home' className='logo-font' >PUSTAKAM</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -27,8 +28,8 @@ function Navbar1() {
                             />
                             <Button variant="outline-success">Search</Button>
                         </Form>
-                        <Nav.Link href="#action1">Login</Nav.Link>
-                        <Nav.Link href="#action2">Sign Up</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href="/signup">Sign Up</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
