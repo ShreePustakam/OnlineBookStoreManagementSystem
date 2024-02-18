@@ -1,106 +1,40 @@
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import '../Styles/cartStyle.css';
+
 function Wishlist() {
-    return ( 
-        <>
-        <section className="h-100 h-custom">
-  <div className="container h-100 py-5">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col responsive">
+  return <Container className='wishlist'>
+    <h1>Your Wishlist</h1>
+    <Row className='cart-rows'>
+      <Col xs={6} md={4} lg={2}>
+        <img src="/ProjectAssets/SelfHelp/AtomicHabits.jpg" alt="" />
+      </Col>
 
-        <div className="table-responsive">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col" className="h5">My Wishlist</th>
-                <th scope="col">Format</th>
-                <th scope="col">Price</th>
-                <th scope="col">Add to cart</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">
-                  <div className="d-flex align-items-center my-auto flex-column flex-md-row">
-                    <img src='http://localhost:3000/book1.jpg' className="img-fluid rounded-3 img"
-                       alt="Book"/>
-                       
-                    <div className="flex-column  ms-4 ">
-                      <p className="mb-2">Thinking, Fast and Slow</p>
-                      
-                    </div>
-                  </div>
-                </th>
-                <td className="align-middle">
-                  <p className="mb-0 subtotal" >HardBound</p>
-                </td>
-                <td className="align-middle">
-                  <p className="mb-0 subtotal" >₹ 999.00</p>
-                </td>
-                <td className="align-middle">
-                  <div className="d-flex flex-row">
-                  <button type="button" class="btn btn-default btn-sm btn-outline-success">
-                <span class="glyphicon
-                    glyphicon-shopping-cart">
-                </span>
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <b> Add to Cart </b>
-        
-            </button>
-                  </div>
-                </td>
-                
-              </tr>
-              <tr>
-                <th scope="row" className="border-bottom-0">
-                
-                  <div className='responsive '>
-                  <div className="d-flex align-items-center my-auto flex-column flex-md-row">
-                    <img src="http://localhost:3000/book1.jpg" className="img-fluid rounded-3 img"
-                       alt="Book"/>
-                    <div className="flex-column ms-4">
-                      <p className="mb-2">Homo Deus: A Brief History of Tomorrow</p>
-                      
-                        </div>
-                     </div>
-                  </div>
-                </th>
-                <td className="align-middle border-bottom-0">
-                  <p className="mb-0 subtotal" >Paperback</p>
-                </td>
-                <td className="align-middle border-bottom-0">
-                  <p className="mb-0 subtotal" >₹ 1350.00</p>
-                </td>
-                <td className="align-middle border-bottom-0">
-                  <div className="d-flex flex-row">
-                  <button type="button" class="btn btn-default btn-sm btn-outline-success">
-                <span class="glyphicon
-                    glyphicon-shopping-cart">
-                </span>
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <b> Add to Cart </b>
-        
-            </button>
-                  </div>
-                </td>
-                
-                
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <Col xs={6} md={4} lg={2}>
+        <h3>Book Title</h3>
+      </Col>
 
-      </div>
-    </div>
-  </div>
-</section>
-        </>
-        
-     );
+      <Col >
+        <button type="button" className="btn btn-outline-success">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart-check-fill" viewBox="0 0 16 16">
+            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"></path>
+          </svg>
+          Add to Cart
+        </button>
+
+        <button type="button" className="btn btn-outline-danger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
+          </svg>
+          Remove
+        </button>
+      </Col>
+
+    </Row>
+
+  </Container>
 }
 
 export default Wishlist;

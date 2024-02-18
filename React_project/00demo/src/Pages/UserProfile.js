@@ -1,92 +1,57 @@
-function UserProfile()
-{
-    return( 
-            <div>
-                
-                <div className=' DivUser text-white '>
-                {/* p-3 mb-2 bg-dark bg-gradient text-white  */}
-                    <center>
-                        <img src="http://localhost:3000/profile.png" alt="Rounded circle Image" className="Icon rounded-circle"></img>
 
-                        <h1>Welcome Aseem</h1>
-                        <h2>@ShreePustakam</h2>
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom/cjs/react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import "../Styles/userProfileStyle.css";
 
-                        <div class="container">
-                            <div class="container">
-                                <div class="row" >
+function UserProfile() {
+    return <Container>
+        <Row className="user-profile">
+            <Col>
+                <img src="ProjectAssets\signin-image.jpg"></img>
+            </Col>
 
-                                    <div class="col">
-                                        <h3 className='left'>Username:</h3>
-                                    </div>
+            <Col>
+                <h1 className="logo-font">Pustakam</h1>
 
-                                    <div class="col">
-                                        <h3 className='right'>Aseem Vairagi</h3>
-                                    </div>
+                <div className='user-info'>
+                    <h3>Your name</h3>
+                    <h5>youremail@gmail.com</h5>
 
-                                    <div class="w-100"></div>
-
-                                    <div class="col">
-                                        <h3 className='left'>Email:</h3>
-                                    </div>
-
-                                    <div class="col">
-                                        <h3 className='right'>aseem@ShreePustakam.com</h3>
-                                    </div>
-
-                                    <div class="w-100"></div>
-
-                                    <div class="col">
-                                        <h3 className='left'>DOB:</h3>
-                                    </div>
-
-                                    <div class="col">
-                                        <h3 className='right'>16-06-2002</h3>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col">
-                                    <a href='...'><h3>Your Order</h3></a>
-                                </div>
-
-                                <div class="col">
-                                <div class="col">
-                                    <a href='...'><h3>Your Cart</h3></a>
-                                </div>
-                                </div>
-
-                                <div class="col">
-                                <div class="col">
-                                    <a href='...'><h3>Your Wishlist</h3></a>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col"></div>
-
-                                <div class="col">
-                                    <div class="col">
-                                    <button type='SignOut' href="..." class="btn btn-primary Btn">SignOut</button>
-                                    </div>
-                                </div>
-
-                                <div class="col">  
-                                    <div class="col">
-                                    </div>
-                                
-                                </div>
-                            </div>
-
-                        </div>
+                    <div>
+                        <a href="#" class="text-decoration-none">
+                            <Link to="/cart">Your cart </Link>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"></path>
+                            </svg>
+                        </a>
                     </div>
-                    </center>
+
+                    <div>
+                        <a href="#" class="text-decoration-none">
+                            <Link to="/wishlist">Your Wishlist </Link>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div>
+                    <a href="#" class="text-decoration-none">
+                        <Link to="/orders">Your Orders </Link>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+                            <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z"></path>
+                        </svg>
+                    </a>
+                    </div>
+
                 </div>
-            </div>
-          )
+            </Col>
+        </Row>
+    </Container>
 }
 
 export default UserProfile;

@@ -9,7 +9,7 @@ function Login() {
   return <Container>
       <Row className="user">
           <Col>
-          <img src="ProjectAssets\signin-image.jpg"></img>
+          <img src="ProjectAssets\signup-image.jpg"></img>
           </Col>
 
           <Col>

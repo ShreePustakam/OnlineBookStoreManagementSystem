@@ -8,9 +8,9 @@ import '../Styles/navbarStyle.css';
 
 function Navbar1() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary" style={{backgroundColor:"#40A2E3"}}>
+        <Navbar expand="lg" className="bg-body-tertiary" style={{backgroundColor:"#FFDFDF"}}>
             <Container fluid>
-                <Navbar.Brand href='/Home' className='logo-font' >PUSTAKAM</Navbar.Brand>
+                <Navbar href='/Home' className='logo-font' >PUSTAKAM</Navbar>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

@@ -1,0 +1,14 @@
+.top-footer{
+    background-color: #FBACCC;
+    height: 70px;
+}
+
+.top-footer div{
+    text-align: center;
+}
+
+.top-footer i{
+    font-size: large;
+    padding: 10px;
+    margin-top: 20px;
+}

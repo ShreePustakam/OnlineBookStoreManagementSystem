@@ -1,26 +1,59 @@
+/* Common styles for orders, wishlist and cart compnents. */
+.cart-rows{
+    margin: 2%;
+    background-color: white;
+}
+
+/* For cart component */
 .yourCart{
     margin-top:5%;
     margin-bottom: 10%;
 }
 
 .yourCart img{
-    width: 20%;
+    width: 50%;
     padding: 2%;
 }
 
-.cart-rows{
-    margin: 2%;
-    background-color: white;
+.yourCart h1{
+    color: #D14D72;
+    font-family: 'Protest Revolution', sans-serif;
 }
 
 .yourCart h3{
-    padding-top: 10%;
+    padding-top: 20%;
 }
 
-.btn-remove{
-    padding-top: 2.4%;
+.yourCart button{
+    margin-top: 20%;
+    margin-left: 10%;
 }
 
-.btn-buy{
-    margin-left: 80%;
+.buy-btn{
+    margin-left: 70%;
+    margin-bottom: 20%;
+}
+
+/* For wishlist component */
+.wishlist h3{
+    padding-top: 20%;
+}
+
+.wishlist button{
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.wishlist{
+    margin-top:5%;
+    margin-bottom: 20%;
+}
+
+.wishlist img{
+    width: 50%;
+    padding: 2%;
+}
+
+.yourCart h5{
+    padding-top: 30%;
 }

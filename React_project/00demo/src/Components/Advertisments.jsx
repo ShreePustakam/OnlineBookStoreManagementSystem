@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import imageLibrary from '../adsImagesArr';
 import '../Styles/adsImagesStyle.css';
+import { Container } from 'react-bootstrap';
 
 function Advertisments() {
   return (

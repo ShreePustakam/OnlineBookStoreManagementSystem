@@ -1,11 +1,11 @@
+import '../Styles/footerStyle.css';
+
 function Footer() {
   return (
-    <div className='footer-div' style={{backgroundColor:"#FFF6E9"}}>
-      <section className="p-4">
-        <footer className="">
-          <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom" style={{backgroundColor:"#40A2E3"}
-          }>
-            <div style={{textAlign:"center"}}>
+    <div className='footer-div' style={{backgroundColor:"#FFF6F6"}}>
+
+<section className="top-footer">
+            <div>
               <a href="#988" className="me-4 text-reset">
                 <i className="fa-brands fa-facebook"></i>
               </a>
@@ -28,6 +28,17 @@ function Footer() {
 
           </section>
 
+
+
+
+
+      <section className="p-4">
+
+  
+
+
+
+        <footer className="">
           <section className="">
             <div className="container text-center text-md-start mt-5">
 
@@ -35,8 +46,8 @@ function Footer() {
 
                 <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
-                  <h6  className="fw-bold mb-4 logo-font">
-                    <i className="fas fa-gem me-3"></i>PUSTAKAM
+                  <h6  className=" mb-4 logo-font">
+                    <i className="fas fa-gem me-3"  style={{color:"F875AA"}} ></i>PUSTAKAM
                   </h6>
                   <p>
                     Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -96,12 +107,16 @@ function Footer() {
               </div>
             </div>
           </section>
-          <div style={{textAlign:"center", backgroundColor:"#0D9276"}}>
-        <h6>© 2024 Copyright</h6>
-        <a> PUSTAKAM</a>
-      </div>
+      
         </footer>
       </section>
+
+
+      <div style={{textAlign:"center"}}>
+        <h6>© 2024 Copyright <a style={{color:"#F875AA"}}> PUSTAKAM</a> </h6>
+      </div>
+
+
     </div>
 
   );
