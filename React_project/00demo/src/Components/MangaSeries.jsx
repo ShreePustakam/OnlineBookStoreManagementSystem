@@ -6,15 +6,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import mangaBooks from "../mangaBooksArr";
 import '../Styles/allSeriesStyle.css';
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
+import '../Pages/BookDisplay';
 
-function Cart(){
-
-}
-
-function BookDetail(){
-    
-}
 function MangaSeries(props) {
     return <div className="series">
         <h1>Manga</h1>
@@ -25,13 +19,13 @@ function MangaSeries(props) {
             return(
             <Col xs={6} md={4} lg={2}>
                 <Card style={{ width: '10rem'}}>
-                <Card.Img src={e.src} style={{width:100, alignContent:"center" }} onClick={BookDetail()}/>
+                <Card.Img src={e.src} style={{width:100, alignContent:"center" }}/>
                 <Card.Body>
                     <Card.Title>{e.name}</Card.Title>
                     <Card.Text>
                     {e.price}
                     </Card.Text>
-                    <Button variant="primary" onClick={Cart()}>Add</Button>
+                    <Button variant="primary">Add</Button>
                 </Card.Body>
                 </Card>
             </Col>

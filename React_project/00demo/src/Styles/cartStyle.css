@@ -1,0 +1,26 @@
+.yourCart{
+    margin-top:5%;
+    margin-bottom: 10%;
+}
+
+.yourCart img{
+    width: 20%;
+    padding: 2%;
+}
+
+.cart-rows{
+    margin: 2%;
+    background-color: white;
+}
+
+.yourCart h3{
+    padding-top: 10%;
+}
+
+.btn-remove{
+    padding-top: 2.4%;
+}
+
+.btn-buy{
+    margin-left: 80%;
+}

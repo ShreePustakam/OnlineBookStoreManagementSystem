@@ -6,8 +6,16 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import selfHelpBooks from "../selfHelpBooksArr";
 import '../Styles/allSeriesStyle.css';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 
 function SelfHelpSeries(props) {
+
+    // const navigate = useNavigate();
+
+    // function navigateBookDetails(){
+    //     navigate('/book');
+    // }
+
     return <div className="series">
         <h1>Self Help</h1>
         <Container>

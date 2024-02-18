@@ -9,6 +9,7 @@ import BookSet from "./BookSet";
 import Orders from './Orders';
 import UserProfile from "../Pages/UserProfile";
 import BookDisplay from "../Pages/BookDisplay";
+import CartDisplay from "../Pages/CartDisplay";
 
 function App() {
     return (  
@@ -19,7 +20,7 @@ function App() {
             <Route path="/book" component={BookDisplay} exact />
             <Route path="/login" component={Login} exact />
             <Route path="/signup" component={SignUp} exact />
-            <Route path="/cart" component={Cart} exact />
+            <Route path="/cart" component={CartDisplay} exact />
             <Route path="/wishlist" component={Wishlist} exact />
             <Route path="/bill" component={Bill} exact />
             <Route path="/bookset" component={BookSet} exact />

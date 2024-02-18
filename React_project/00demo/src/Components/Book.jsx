@@ -1,5 +1,6 @@
 //import axios from 'axios';
 import { useState } from 'react';
+import { Outlet, Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
@@ -9,8 +10,8 @@ import '../Styles/bookDisplayStyle.css';
 
 function Book() {
 return(
-  <Container className='bookDisplay'>
-    <Card className='bookCard'>
+  <Container className='bookDisplay' >
+    <Card className='bookCard' >
     <Row>
       <Col>
       <img src="/ProjectAssets/SelfHelp/AtomicHabits.jpg" alt="" className='bookImg'/>
