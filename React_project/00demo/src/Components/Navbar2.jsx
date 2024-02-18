@@ -12,24 +12,12 @@ function Navbar2() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <NavDropdown title="Geners" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Fantasy</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Fiction
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Non-Fiction</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Self-Help
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.5">
-                Horror
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.6">
-                Book-Set
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Self-Help</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Manga</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Fanatasy</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Cart</Nav.Link>
-            <Nav.Link href="#link">Wish-List</Nav.Link>
+            <Nav.Link href="#link">About Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

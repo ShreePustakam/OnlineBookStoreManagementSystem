@@ -17,25 +17,19 @@ import UserProfile from "./Pages/UserProfile";
 function App() {
     return (  
         <>
-        <Navbar1/>
-        <Navbar2/>
         <Switch>
-                        <Route path="/" component={Home} exact />
-                        <Route path="/home" component={Home} exact />
-                        <Route path="/book" component={Book} exact />
-                        <Route path="/login" component={Login} exact />
-                        <Route path="/signup" component={SignUp} exact />
-                        <Route path="/cart" component={Cart} exact />
-                        <Route path="/wishlist" component={Wishlist} exact />
-                        <Route path="/bill" component={Bill} exact />
-                        <Route path="/bookset" component={BookSet} exact />
-                        <Route path="/orders" component={Orders} exact />
-                        <Route path="/profile" component={UserProfile} exact />
-                        
-                        
-
+            <Route path="/" component={Home} exact />
+            <Route path="/home" component={Home} exact />
+            <Route path="/book" component={Book} exact />
+            <Route path="/login" component={Login} exact />
+            <Route path="/signup" component={SignUp} exact />
+            <Route path="/cart" component={Cart} exact />
+            <Route path="/wishlist" component={Wishlist} exact />
+            <Route path="/bill" component={Bill} exact />
+            <Route path="/bookset" component={BookSet} exact />
+            <Route path="/orders" component={Orders} exact />
+            <Route path="/profile" component={UserProfile} exact />
         </Switch>
-        <Footer/> 
         </>
     );
 }
