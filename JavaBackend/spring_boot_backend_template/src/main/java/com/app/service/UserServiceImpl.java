@@ -17,6 +17,7 @@ import com.app.dto.ApiResponse;
 import com.app.dto.UserDTO;
 import com.app.dto.UserPasswordDTO;
 import com.app.dto.EditUserDTO;
+import com.app.dto.LoginRequestDTO;
 import com.app.entities.Book;
 import com.app.entities.User;
 import com.app.entities.Role;
@@ -43,9 +44,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public UserDTO showProfile(String emailId) {
+	public UserDTO showProfile(Long uId) {
 		
-		return mapper.map(userDao.findByEmail(emailId), UserDTO.class);
+		return mapper.map(userDao.findById(uId).orElseThrow(()-> new ResourceNotFoundException("Invalid Customer Id")), UserDTO.class);
 	}
 	
 	@Override
@@ -93,5 +94,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO findProfile(@Valid Long cId) {
 		return mapper.map(userDao.findById(cId).orElseThrow(()-> new ResourceNotFoundException("Invalid Customer Id")),UserDTO.class);
+	}
+	
+	@Override
+	public UserDTO loginUser(@Valid LoginRequestDTO userLogin) {
+		User usr = userDao.findByEmailAndPassword(userLogin.getEmail(),userLogin.getPassword())
+					.orElseThrow(() -> new ResourceNotFoundException("Invalid Username or Password"));
+		return mapper.map(usr, UserDTO.class);
 	}
 }
