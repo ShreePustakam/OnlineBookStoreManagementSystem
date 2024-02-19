@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,6 +5,7 @@ import '../Styles/cartStyle.css';
 
 function Cart() {
   return <div>
+    
       <Container className='yourCart'>
         <h1>Your Cart</h1>
         <Row className='cart-rows'>

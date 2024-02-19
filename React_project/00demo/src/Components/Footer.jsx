@@ -21,7 +21,7 @@ function Footer() {
               <a href="#786" className="me-4 text-reset">
                 <i className="fab fa-linkedin"></i>
               </a>
-              <a href="#97" className="me-4 text-reset">
+              <a href="https://github.com/ShreePustakam/OnlineBookStoreManagementSystem" className="me-4 text-reset">
                 <i className="fab fa-github"></i>
               </a>
             </div>
@@ -99,7 +99,7 @@ function Footer() {
                   <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
                   <p>
                     <i className="fas fa-envelope me-3"></i>
-                    info@example.com
+                    shreepustakam.bookstore@gmail.com
                   </p>
                   <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
                   <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p>
@@ -113,7 +113,7 @@ function Footer() {
 
 
       <div style={{textAlign:"center"}}>
-        <h6>© 2024 Copyright <a style={{color:"#F875AA"}}> PUSTAKAM</a> </h6>
+        <h6 style={{color:"#D14D72"}}>© 2024 Copyright <a style={{color:"#B9005B"}}> PUSTAKAM</a> </h6>
       </div>
 
 

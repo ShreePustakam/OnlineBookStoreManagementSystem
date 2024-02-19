@@ -1,0 +1,23 @@
+.aboutus{
+    text-align: center;
+    background-color: white;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-top: 3%;
+}
+
+.aboutus img{
+    width: 70%;
+    margin: 2%;
+}
+
+.aboutus p{
+    margin: 2%;
+    color: #B9005B;
+    text-align: justify;
+}
+
+.aboutus h3{
+    color: #F875AA;
+    font-family: 'Protest Revolution', sans-serif;
+}

@@ -2,7 +2,7 @@
 
 .logo-font{
     font-family: 'Protest Revolution', sans-serif;
-    color: #F875AA;
+    color: #B9005B;
     font-size: 2.2rem;
 }
 
@@ -12,4 +12,8 @@
 .navbar-2{
     background-color: #F1D1D0 ;
     color: blueviolet;
+}
+
+Nav.Link{
+     color: #B9005B;
 }
