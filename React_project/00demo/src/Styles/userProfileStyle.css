@@ -9,10 +9,25 @@
     padding: 20px;
 }
 
+/* .user-profile img{
+    width: 100%;
+} */
 .user-info{
     margin-top: 10%;
 }
 
 .user-info div{
     margin: 5%;
+}
+
+.user-info a{
+    color: #B9005B;
+}
+
+.your-options{
+    padding-top:5%;
+}
+
+.your-options a{
+    padding-top: 3%;
 }

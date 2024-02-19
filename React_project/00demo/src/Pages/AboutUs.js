@@ -10,7 +10,7 @@ function AboutUs() {
     <Container className='aboutus'>
         <Row>
         <Col>
-            <h1 className='logo-font'>Pustakam</h1>
+            <h1 className='logo-font'><a href="/home" className='logo-font'>Pustakam</a></h1>
             <h3>Development Team</h3>
         </Col>
         </Row>
