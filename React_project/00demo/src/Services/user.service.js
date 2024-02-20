@@ -1,7 +1,11 @@
-import httpCLient from "../http-common";
+import httpClient from "../http-common";
 
 const postSignupInfo = (data) =>{
-    return httpCLient.post('customer/SignUp', data);
+    return httpClient.post('customer/SignUp', data);
 }
 
-export default {postSignupInfo};
+const updateProfile = (data, cid) => {
+    return httpClient.put('customer/edit/'+cid, data);
+  };
+
+export default {postSignupInfo, updateProfile};

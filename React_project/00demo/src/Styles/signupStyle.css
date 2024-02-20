@@ -4,6 +4,10 @@
     margin: 8%;
 }
 
+.user h2{
+    color: #B9005B;
+}
+
 input{
     background: transparent;
     border: none;

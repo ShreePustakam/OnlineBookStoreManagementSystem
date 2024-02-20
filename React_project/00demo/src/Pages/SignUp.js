@@ -1,4 +1,4 @@
-import React, { useState, useNavigate } from "react";
+import React, { useState} from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -28,7 +28,7 @@ function SignUp() {
             phoneNo,
             password,
         };
-        debugger;
+     
         userService.postSignupInfo(user)
             .then((response) => {
                 console.log('User added successfully', response);
