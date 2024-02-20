@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.ApiResponse;
 import com.app.dto.EditUserDTO;
 import com.app.dto.LoginRequestDTO;
 import com.app.dto.UserDTO;
@@ -39,7 +40,14 @@ public class UserController {
 	// REST API for customer Login
 	@PostMapping("/Login")
 	public ResponseEntity<?> userLogin(@RequestBody @Valid LoginRequestDTO userLogin){
-		return ResponseEntity.ok(userService.loginUser(userLogin));
+		//return ResponseEntity.ok(userService.loginUser(userLogin));
+		try {
+			UserDTO dto =  userService.loginUser(userLogin);
+			return ResponseEntity.ok(dto);
+		} catch (Exception e) {
+			return ResponseEntity.ok(new ApiResponse("Invalid Username or Password"));
+		}
+		
 	}
 	
 	// REST API to display Customer profile

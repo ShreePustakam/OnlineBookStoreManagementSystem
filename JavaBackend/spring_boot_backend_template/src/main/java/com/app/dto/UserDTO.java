@@ -17,6 +17,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDTO {
 	
+	@JsonProperty(access = Access.READ_ONLY)
+	private Long userId;
+	
 	@NotBlank
 	private String userName;
 	
