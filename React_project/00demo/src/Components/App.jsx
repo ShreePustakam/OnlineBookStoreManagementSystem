@@ -11,6 +11,8 @@ import CartDisplay from "../Pages/CartDisplay";
 import WishlistDisplay from "../Pages/WishlistDisplay";
 import OrdersDisplay from "../Pages/OrdersDisplay";
 import AboutUs from "../Pages/AboutUs";
+import EditProfile from "../Pages/EditProfile";
+import AdminProfile from "../Pages/AdminProfile";
 
 function App() {
     return (  
@@ -26,8 +28,10 @@ function App() {
             <Route path="/bookset" component={BookSet} exact />
             <Route path="/orders" component={OrdersDisplay} exact />
             <Route path="/profile" component={UserProfile} exact />
+            <Route path="/editprofile" component={EditProfile} exact/>
             <Route path="/wishlist" component={WishlistDisplay} exact />
             <Route path="/aboutus" component={AboutUs} exact/>
+            <Route path="/adminprofile" component={AdminProfile} exact/>
         </Switch>
         </>
     );

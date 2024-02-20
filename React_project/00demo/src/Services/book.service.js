@@ -1,7 +1,7 @@
 import httpCLient from "../http-common";
 
-const getBookDetail = (isbn) =>{
-    return httpCLient.get('books/{isbn}', data);
+const postAddBookInfo = (data) =>{
+    return httpCLient.post('books/add', data);
 }
 
-export default {postSignupInfo};
+export default {postAddBookInfo};

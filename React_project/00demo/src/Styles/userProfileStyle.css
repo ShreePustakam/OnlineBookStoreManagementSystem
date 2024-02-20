@@ -9,6 +9,9 @@
     padding: 20px;
 }
 
+.user-profile h3, h5{
+    color: #B9005B;
+}
 /* .user-profile img{
     width: 100%;
 } */
