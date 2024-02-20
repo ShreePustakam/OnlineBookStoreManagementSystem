@@ -54,11 +54,11 @@ public class BookController {
 	@PostMapping(value = "/images/{isbn}", 
 			consumes = "multipart/form-data") //consumes : required ONLY for swagger testing
 	public ResponseEntity<?> uploadImage(@PathVariable String isbn, 
-			@RequestParam MultipartFile imageFile)
+			@RequestParam MultipartFile image)
 			throws IOException {
 		System.out.println("in upload img " + isbn);
 		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(imgService.uploadImage(isbn, imageFile));
+				.body(imgService.uploadImage(isbn, image));
 	}
 
 	//REST API to get list of books by it's genre 
