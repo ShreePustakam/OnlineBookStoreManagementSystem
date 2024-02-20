@@ -12,3 +12,15 @@
 .btn{
     margin-left: 10px;
 }
+
+.card-img{
+    margin: 5%;
+    margin-left: 25%;
+}
+
+.card-container{
+    margin: 5%;
+    text-align: justify;
+    width: 70%;
+    color: #B9005B;
+}

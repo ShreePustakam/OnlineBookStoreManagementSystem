@@ -1,14 +1,23 @@
-
 .bookCard{
-    margin-top: 100px;
-    margin-bottom: 200px;
-    padding: 10%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    padding: 5%;
+    color: #B9005B;
+}
+
+.bookCard p{
+    margin: 2%;
+}
+
+.bookCard h1{
+    font-family: 'Protest Revolution', sans-serif;
+    color: #B9005B;
 }
 
 .bookImg{
-    width: 50%;
+    width: 60%;
 }
 
-.bookBtn{
-    margin-top: 5%;
+.bookCard button{
+    margin: 5%;
 }
