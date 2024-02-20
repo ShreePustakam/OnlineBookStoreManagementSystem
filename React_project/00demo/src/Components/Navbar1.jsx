@@ -30,6 +30,8 @@ function Navbar1() {
                         </Form>
                         <Nav.Link href="/login">Login</Nav.Link>
                         <Nav.Link href="/signup">Sign Up</Nav.Link>
+
+                        <Nav.Link href="/profile">Your Profile</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

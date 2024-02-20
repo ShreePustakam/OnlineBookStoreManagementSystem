@@ -42,7 +42,7 @@ function AddBookByAdmin() {
         bookService.postAddBookInfo(book)
             .then((response) => {
                 console.log('Book added successfully', response);
-                history.push("/addbookimg/:"+isbn);
+                history.push("/addbookimg?isbn="+isbn);
             })
             .catch((error) => {
                 alert(error);

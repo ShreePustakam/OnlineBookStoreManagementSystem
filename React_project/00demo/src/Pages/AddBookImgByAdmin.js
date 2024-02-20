@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 import bookImgService from '../Services/bookImg.service';
 import Container from 'react-bootstrap/Container';

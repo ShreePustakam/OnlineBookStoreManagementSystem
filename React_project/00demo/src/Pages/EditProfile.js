@@ -84,7 +84,7 @@ function EditProfile(){
                     <button type="submit" className="btn btn-success">
                         Save Info
                     </button>
-                    <p><a href="/home">Home</a></p>
+                    <p style={{margin:30}}><a href="/home" style={{color:"#D14D72"}}>Go to Home</a></p>
                 </form>
             </div>
         </Col>

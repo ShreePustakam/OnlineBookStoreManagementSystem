@@ -13,6 +13,8 @@ import OrdersDisplay from "../Pages/OrdersDisplay";
 import AboutUs from "../Pages/AboutUs";
 import EditProfile from "../Pages/EditProfile";
 import AdminProfile from "../Pages/AdminProfile";
+import AddBookImgByAdmin from "../Pages/AddBookImgByAdmin";
+import AddBookByAdmin from "../Pages/AddBookByAdmin";
 
 function App() {
     return (  
@@ -32,6 +34,9 @@ function App() {
             <Route path="/wishlist" component={WishlistDisplay} exact />
             <Route path="/aboutus" component={AboutUs} exact/>
             <Route path="/adminprofile" component={AdminProfile} exact/>
+            <Route path="/addbook" component={AddBookByAdmin} exact />
+            <Route path="/addbookimg" component={AddBookImgByAdmin} exact />
+
         </Switch>
         </>
     );
