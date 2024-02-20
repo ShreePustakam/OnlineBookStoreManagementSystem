@@ -2,6 +2,7 @@ package com.app.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import com.app.entities.Role;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -16,6 +17,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDTO {
 	
+	@JsonProperty(access = Access.READ_ONLY)
+	private Long userId;
+	
 	@NotBlank
 	private String userName;
 	
@@ -28,4 +32,7 @@ public class UserDTO {
 	@NotBlank
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
+	
+	@JsonProperty(access = Access.READ_ONLY)
+	private Role role;
 }

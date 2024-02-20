@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.ApiResponse;
+import com.app.dto.EditUserDTO;
+import com.app.dto.LoginRequestDTO;
 import com.app.dto.UserDTO;
 import com.app.dto.UserPasswordDTO;
-import com.app.dto.EditUserDTO;
 import com.app.service.UserService;
 
 @RestController
@@ -31,14 +33,27 @@ public class UserController {
 	
 	// REST API for new customer signup
 	@PostMapping("/SignUp")
-	public ResponseEntity<?> customerSignUp( @RequestBody @Valid UserDTO newCustomer){
+	public ResponseEntity<?> customerSignUp(@RequestBody @Valid UserDTO newCustomer){
 		return ResponseEntity.status(HttpStatus.CREATED).body(userService.addCustomer(newCustomer));
 	}
 	
+	// REST API for customer Login
+	@PostMapping("/Login")
+	public ResponseEntity<?> userLogin(@RequestBody @Valid LoginRequestDTO userLogin){
+		//return ResponseEntity.ok(userService.loginUser(userLogin));
+		try {
+			UserDTO dto =  userService.loginUser(userLogin);
+			return ResponseEntity.ok(dto);
+		} catch (Exception e) {
+			return ResponseEntity.ok(new ApiResponse("Invalid Username or Password"));
+		}
+		
+	}
+	
 	// REST API to display Customer profile
-	@GetMapping("/{emailId}")
-	public ResponseEntity<?> showProfile(@PathVariable @Valid String emailId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(userService.showProfile(emailId));
+	@GetMapping("/{uId}")
+	public ResponseEntity<?> showProfile(@PathVariable @Valid Long uId){
+		return ResponseEntity.status(HttpStatus.FOUND).body(userService.showProfile(uId));
 	}
 	
 	// REST API to edit customer details
