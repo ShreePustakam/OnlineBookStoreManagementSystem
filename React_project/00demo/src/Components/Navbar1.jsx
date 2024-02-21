@@ -27,10 +27,14 @@ function Navbar1() {
         })
     }
 
+    function goToHome(){
+        history.push("/home");
+    }
+    
     return (
         <Navbar expand="lg" className="bg-body-tertiary" style={{ backgroundColor: "#FFDFDF" }}>
             <Container fluid>
-                <Navbar href='/Home' className='logo-font' >PUSTAKAM</Navbar>
+                <Navbar onClick={goToHome} className='logo-font' >PUSTAKAM</Navbar>
                 <div style={{ marginLeft: 50 }}></div>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">

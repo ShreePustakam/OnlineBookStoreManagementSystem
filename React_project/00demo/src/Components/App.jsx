@@ -18,6 +18,7 @@ import Bill from "./Bill";
 import AllOrdersDisplay from "../Pages/AllOrdersDisplay";
 import AllBookDisplay from "../Pages/AllBookDisplay";
 import UpdateBookByAdmin from "../Pages/UpdateBookByAdmin";
+import Search from "../Pages/Search";
 
 function App() {
     return (  
@@ -43,6 +44,7 @@ function App() {
             <Route path="/allorders" component={AllOrdersDisplay} exact />
             <Route path="/allbooks" component={AllBookDisplay} exact />
             <Route path="/update" component={UpdateBookByAdmin} exact />
+            <Route path="/searchresult" component={Search} exact />
 
         </Switch>
         </>
