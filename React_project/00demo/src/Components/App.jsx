@@ -16,7 +16,8 @@ import AddBookImgByAdmin from "../Pages/AddBookImgByAdmin";
 import AddBookByAdmin from "../Pages/AddBookByAdmin";
 import Bill from "./Bill";
 import AllOrdersDisplay from "../Pages/AllOrdersDisplay";
-
+import AllBookDisplay from "../Pages/AllBookDisplay";
+import UpdateBookByAdmin from "../Pages/UpdateBookByAdmin";
 
 function App() {
     return (  
@@ -40,6 +41,8 @@ function App() {
             <Route path="/addbookimg" component={AddBookImgByAdmin} exact />
             <Route path="/bill" component={Bill} exact />
             <Route path="/allorders" component={AllOrdersDisplay} exact />
+            <Route path="/allbooks" component={AllBookDisplay} exact />
+            <Route path="/update" component={UpdateBookByAdmin} exact />
 
         </Switch>
         </>
