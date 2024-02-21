@@ -40,12 +40,18 @@ public class AddressServiceImpl implements AddressService {
 	
 	@Override
 	public SaveAddressDTO showAddress(@Valid Long cId) {
-		return mapper.map(addressDao.findByUserUserId(cId), SaveAddressDTO.class);
+	Address address=addressDao.findByUserUserId(cId).orElse(null);
+	if(address==null)
+		return null;
+				
+		return mapper.map(address, SaveAddressDTO.class);
 	}
 	
 	@Override
 	public ApiResponse editAddress(@Valid Long uId,@Valid EditAddressDTO addressDto) {
-		Address address = addressDao.findByUserUserId(uId);
+		Address address = addressDao.findByUserUserId(uId).orElse(null);
+		if(address==null)
+			return new ApiResponse("Address not found");
 		address.setStreetArea(addressDto.getStreetArea());
 		address.setCity(addressDto.getCity());
 		address.setState(addressDto.getState());
