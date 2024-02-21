@@ -18,4 +18,24 @@ export async function orderBooks(oId) {
         console.log(error);
         return null;
     }
+}
+
+export async function allOrders() {
+    try {
+        const response = await httpClient.get('/orders/');
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+  }
+
+  export async function ChangeOrderStatus(oStatus,oId) {
+    try {
+        const response = await httpClient.put('/orders/'+oStatus+"/"+oId);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
   }
