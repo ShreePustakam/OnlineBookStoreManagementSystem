@@ -1,5 +1,8 @@
 package com.app.dto;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import com.app.entities.State;
 
 import lombok.AllArgsConstructor;
@@ -17,6 +20,7 @@ private String streetArea;
 	
 	private String city;
 	
+	@Enumerated(EnumType.STRING)
 	private State state;
 	
 	private int pincode;

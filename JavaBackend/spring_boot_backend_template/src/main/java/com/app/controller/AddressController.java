@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.ApiResponse;
 import com.app.dto.EditAddressDTO;
 import com.app.dto.SaveAddressDTO;
 import com.app.service.AddressService;
@@ -35,7 +36,10 @@ public class AddressController {
 	
 	@GetMapping("/{cId}")
 	public ResponseEntity<?> showAddress(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.OK).body(addressService.showAddress(cId));
+		SaveAddressDTO address= addressService.showAddress(cId);
+		if(address==null)
+			return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("Address not found"));
+		return ResponseEntity.status(HttpStatus.OK).body(address);
 	}
 	
 	@PutMapping("/edit/{cId}")
