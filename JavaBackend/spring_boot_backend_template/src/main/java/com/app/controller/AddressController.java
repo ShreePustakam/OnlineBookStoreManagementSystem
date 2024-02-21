@@ -31,7 +31,7 @@ public class AddressController {
 	
 	@PostMapping("/save")
 	public ResponseEntity<?> saveAddress(@RequestBody @Valid SaveAddressDTO addressDto){
-		return ResponseEntity.status(HttpStatus.CREATED).body(addressService.saveAddress(addressDto));
+		return ResponseEntity.status(HttpStatus.OK).body(addressService.saveAddress(addressDto));
 	}
 	
 	@GetMapping("/{cId}")
