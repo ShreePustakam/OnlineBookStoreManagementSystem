@@ -7,7 +7,6 @@ import "../Styles/userProfileStyle.css";
 function UserProfile() {
     return <Container className="user-container">
             <Row className="user-profile">
-
                 <Col>
                     <img src="ProjectAssets\signin-image.jpg"></img>
                 </Col>

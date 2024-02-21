@@ -1,14 +1,12 @@
-import Navbar1 from "../Components/Navbar1";
-import Navbar2 from '../Components/Navbar2';
 import Footer from '../Components/Footer';
 import Cart from '../Components/Cart';
+import Navbar1User from "../Components/Navbar1User";
 
 function CartDisplay() {
 
    return (
       <>
-         <Navbar1/>
-         <Navbar2/>
+         <Navbar1User/>
          <Cart/>  
          <Footer/>
       </>
