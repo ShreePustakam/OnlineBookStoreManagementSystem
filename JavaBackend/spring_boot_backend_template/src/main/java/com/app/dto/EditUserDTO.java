@@ -14,7 +14,7 @@ import lombok.Setter;
 public class EditUserDTO {
 	
 	@NotBlank
-	private String customerName;
+	private String userName;
 	
 	@NotBlank
 	private String email;

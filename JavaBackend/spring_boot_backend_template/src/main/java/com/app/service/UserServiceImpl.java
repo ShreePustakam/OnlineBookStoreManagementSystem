@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 	public EditUserDTO editCustomer(Long cId, @Valid EditUserDTO editCustomer) {
 		User user = userDao.findById(cId)
 							.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
-		user.setUserName(editCustomer.getCustomerName());
+		user.setUserName(editCustomer.getUserName());
 		user.setEmail(editCustomer.getEmail());
 		user.setPhoneNo(editCustomer.getPhoneNo());
 		userDao.save(user);

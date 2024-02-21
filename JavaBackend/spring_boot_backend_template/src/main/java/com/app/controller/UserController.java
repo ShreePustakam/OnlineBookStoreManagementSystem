@@ -53,7 +53,7 @@ public class UserController {
 	// REST API to display Customer profile
 	@GetMapping("/{uId}")
 	public ResponseEntity<?> showProfile(@PathVariable @Valid Long uId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(userService.showProfile(uId));
+		return ResponseEntity.status(HttpStatus.OK).body(userService.showProfile(uId));
 	}
 	
 	// REST API to edit customer details
