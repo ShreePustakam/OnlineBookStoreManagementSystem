@@ -3,12 +3,11 @@ import {Link, Switch, Route} from 'react-router-dom';
 import Login from "../Pages/Login"
 import SignUp from "../Pages/SignUp";
 import BookSet from "./BookSet";
-import Orders from './Orders';
+import OrdersDisplay from "../Pages/OrdersDisplay";
 import UserProfile from "../Pages/UserProfile";
 import BookDisplay from "../Pages/BookDisplay";
 import CartDisplay from "../Pages/CartDisplay";
 import WishlistDisplay from "../Pages/WishlistDisplay";
-import OrdersDisplay from "../Pages/OrdersDisplay";
 import AboutUs from "../Pages/AboutUs";
 import EditProfile from "../Pages/EditProfile";
 import AdminProfile from "../Pages/AdminProfile";

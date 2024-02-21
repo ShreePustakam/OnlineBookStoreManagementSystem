@@ -49,13 +49,13 @@ function Footer() {
                     Geners Available
                   </h6>
                   <p>
-                    <a href="#!" className="text-reset">SELFHELP</a>
+                    <a href="#selfhelp" className="text-reset">SELFHELP</a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">MANGA</a>
+                    <a href="#manga" className="text-reset">MANGA</a>
                   </p>
                   <p>
-                    <a href="#!" className="text-reset">FANTASY</a>
+                    <a href="#fantasy" className="text-reset">FANTASY</a>
                   </p>
                   <p>
                     <a href="#!" className="text-reset">HORROR</a>
