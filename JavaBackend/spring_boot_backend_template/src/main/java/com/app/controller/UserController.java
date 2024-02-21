@@ -71,18 +71,18 @@ public class UserController {
 	// REST API to add book to wishlist
 	@PostMapping("/wishlist/{cId}/{isbn}")
 	public ResponseEntity<?> addtoWishlist(@PathVariable @Valid Long cId,@PathVariable @Valid String isbn){
-		return ResponseEntity.status(HttpStatus.CREATED).body(userService.addToWishlist(cId,isbn));
+		return ResponseEntity.status(HttpStatus.OK).body(userService.addToWishlist(cId,isbn));
 	}
 	
 	// REST API to display wishlist
 	@GetMapping("/wishlist/{cId}")
 	public ResponseEntity<?> customerWishlist(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(userService.displayWishlist(cId));
+		return ResponseEntity.status(HttpStatus.OK).body(userService.displayWishlist(cId));
 	}
 
 	// REST API to Find user by id
 	@GetMapping("/id/{cId}")
 	public ResponseEntity<?> findProfile(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(userService.findProfile(cId));
+		return ResponseEntity.status(HttpStatus.OK).body(userService.findProfile(cId));
 	}
 }
