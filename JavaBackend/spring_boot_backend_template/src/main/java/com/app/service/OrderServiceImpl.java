@@ -21,6 +21,7 @@ import com.app.dao.OrderQtyDao;
 import com.app.dto.ApiResponse;
 import com.app.dto.BookQtyDTO;
 import com.app.dto.OrderDTO;
+import com.app.dto.PlaceOrderDTO;
 import com.app.entities.BookQty;
 import com.app.entities.OStatus;
 import com.app.entities.Order;
@@ -30,33 +31,34 @@ import com.app.entities.OrderQty;
 @Transactional
 public class OrderServiceImpl implements OrderService {
 	@Autowired
-	OrderDao orderDao;
+	private OrderDao orderDao;
 	
 	@Autowired
-	UserDao userDao;
+	private UserDao userDao;
 	
 	@Autowired
-	ModelMapper mapper;
+	private ModelMapper mapper;
 	
 	@Autowired
-	BookQtyDao bookQtyDao;
+	private BookQtyDao bookQtyDao;
 	
 	@Autowired
-	OrderQtyDao orderQtyDao;
+	private OrderQtyDao orderQtyDao;
 	
 	@Autowired
-	BookDao bookDao;
+	private BookDao bookDao;
 	
 	//service method to place order
 	@Override
-	public ApiResponse placeOrder(Long cId) {
+	public PlaceOrderDTO placeOrder(Long cId) {
 		// getting the list of book with quantity of specific customer
 		List<BookQty> bookQtys =bookQtyDao.findByUserUserId(cId); //no unique in the bookQtys;
 		//check for cart empty condition
 		if(bookQtys.isEmpty())
-			return new ApiResponse("No books in the cart !!!");
+			return null;
 		//new order object transient -> persistent
 		Order order = orderDao.save(new Order(null,OStatus.ORDERED,LocalDate.now(),LocalDate.now().plusDays(5),0,userDao.getReferenceById(cId)));
+		PlaceOrderDTO orderDto = mapper.map(order, PlaceOrderDTO.class);
 		//copied all the book quantity from customers cart to the order quantity list
 		List<OrderQty> orderQtys= new ArrayList<OrderQty>();
 		bookQtys.forEach(bookQty ->  orderQtys.add(new OrderQty(null, bookQty.getBook(), bookQty.getQuantity(), order)));
@@ -81,7 +83,7 @@ public class OrderServiceImpl implements OrderService {
 		// empty the cart after ordered
 		bookQtyDao.deleteAll(bookQtys);
 		
-		return new ApiResponse("order placed Successfully !! Order ID : "+ order.getOrderId());
+		return orderDto;
 	}
 	
 	// service method to cancle order

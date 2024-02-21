@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.ApiResponse;
 import com.app.dto.BookQtyDTO;
 import com.app.dto.OrderDTO;
+import com.app.dto.PlaceOrderDTO;
 import com.app.entities.OStatus;
 import com.app.service.OrderService;
 @RestController
@@ -29,7 +30,11 @@ public class OrderController {
 	//REST API to place order for the books present in the customer's cart
 	@PostMapping("/{cId}")
 	public ResponseEntity<?> placeOrder(@PathVariable Long cId){
-		return ResponseEntity.ok(orderService.placeOrder(cId));
+		PlaceOrderDTO orderDto = orderService.placeOrder(cId);
+		if(orderDto == null)
+			return ResponseEntity.ok(new ApiResponse("Cart is Empty !!!")); 
+		
+		return ResponseEntity.ok(orderDto);
 	}
 	
 	//REST API to cancel order 
