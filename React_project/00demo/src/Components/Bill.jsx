@@ -33,52 +33,52 @@ function Bill() {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="col-auto"> <h6 className="color-1 mb-0 change-color">Receipt</h6> </div>
                     <div className="card-body">
-    
-                    {books.map((orderItem, index) => (
-    <div key={index} className="card mb-3"> {/* Add margin-bottom here */}
-        <div className="row mb-3">
-        <div className="col-3">
-    <img
-        className="img-fluid"
-        src={'data:image/jpg;base64,' + orderItem.book.image}
-        alt={orderItem.book.title}
-        style={{ width: '80px', height: '90px' }} // Set your desired width and height
-    />
-</div>
 
-            <div className="col-3">
-                <h5>{orderItem.book.title}</h5>
-            </div>
-            <div className="col-2">
-                <p>Price: &#8377; {orderItem.book.price}</p>
-            </div>
-            <div className="col-2">
-                <p>Quantity: {orderItem.quantity}</p>
-            </div>
-            <div className="col-2">
-                <p>Subtotal: {orderItem.quantity * orderItem.book.price}</p>
-            </div>
-            {/* Add more details as needed */}
-        </div>
-    </div>
-))}
+                        {books.map((orderItem, index) => (
+                            <div key={index} className="card mb-3"> {/* Add margin-bottom here */}
+                                <div className="row mb-3">
+                                    <div className="col-3">
+                                        <img
+                                            className="img-fluid"
+                                            src={'data:image/jpg;base64,' + orderItem.book.image}
+                                            alt={orderItem.book.title}
+                                            style={{ width: '80px', height: '90px' }} // Set your desired width and height
+                                        />
+                                    </div>
+
+                                    <div className="col-3">
+                                        <h5>{orderItem.book.title}</h5>
+                                    </div>
+                                    <div className="col-2">
+                                        <p>Price: &#8377; {orderItem.book.price}</p>
+                                    </div>
+                                    <div className="col-2">
+                                        <p>Quantity: {orderItem.quantity}</p>
+                                    </div>
+                                    <div className="col-2">
+                                        <p>Subtotal: {orderItem.quantity * orderItem.book.price}</p>
+                                    </div>
+                                    {/* Add more details as needed */}
+                                </div>
+                            </div>
+                        ))}
 
 
-<div className="col">
-                        <div className="row justify-content-between">
-                            <div className="col-auto"><p className="mb-1 text-dark"><b>Order Details</b></p></div>
-                            <div className="flex-sm-col text-right col"> <p className="mb-1"><b>Total</b></p> </div>
-                            <div className="flex-sm-col col-auto"> <p className="mb-1">&#8377;{books.reduce((total, orderItem) => total + orderItem.book.price * orderItem.quantity, 0)}</p> </div>
+                        <div className="col">
+                            <div className="row justify-content-between">
+                                <div className="col-auto"><p className="mb-1 text-dark"><b>Order Details</b></p></div>
+                                <div className="flex-sm-col text-right col"> <p className="mb-1"><b>Total</b></p> </div>
+                                <div className="flex-sm-col col-auto"> <p className="mb-1">&#8377;{books.reduce((total, orderItem) => total + orderItem.book.price * orderItem.quantity, 0)}</p> </div>
+                            </div>
+                            <div className="row justify-content-between">
+                                <div className="flex-sm-col text-right col"><p className="mb-1"><b>Delivery Charges</b></p></div>
+                                <div className="flex-sm-col col-auto"><p className="mb-1">Free</p></div>
+                            </div>
                         </div>
-                        <div className="row justify-content-between">
-                            <div className="flex-sm-col text-right col"><p className="mb-1"><b>Delivery Charges</b></p></div>
-                            <div className="flex-sm-col col-auto"><p className="mb-1">Free</p></div>
-                        </div>
-                    </div>
-                
+
                     </div>
                     <div className="card-footer">
                         <div className="jumbotron-fluid">

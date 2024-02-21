@@ -16,10 +16,11 @@ function AdminProfile() {
                     <h1 className='logo-font'><a href="/home" className='logo-font'>Pustakam Admin</a></h1>
 
                     <div className='user-info'>
-                        <h3>Your name</h3>
-                        <h5>youremail@gmail.com</h5>
+                        <h3>{sessionStorage.getItem("userName")}</h3>
+                        <h5>{sessionStorage.getItem("email")}</h5>
+                        <h5>{sessionStorage.getItem("phoneNo")}</h5>
 
-                        <div className='your-options'>
+                        <div className='your-options' style={{backgroundColor:"#FFF6F6"}}>
                             <div>
                                 <a href="#" class="user-link">
                                     <Link to="/orders">All Orders </Link>

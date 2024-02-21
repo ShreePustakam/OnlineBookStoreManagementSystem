@@ -1,40 +1,84 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Table, Container } from 'react-bootstrap';
+import axios from 'axios';
+import wishlistService, { myWishlist } from '../Services/wishlist.service';
+import cartService from '../Services/book-qty.service';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import '../Styles/cartStyle.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Wishlist() {
-  return <Container className='wishlist'>
-    <h1>Your Wishlist</h1>
-    <Row className='cart-rows'>
-      <Col xs={6} md={4} lg={2}>
-        <img src="/ProjectAssets/SelfHelp/AtomicHabits.jpg" alt="" />
-      </Col>
+const Wishlist = () => {
+  const [books, setBooks] = useState([]);
+  const cId = sessionStorage.getItem('cId');
 
-      <Col xs={6} md={4} lg={2}>
-        <h3>Book Title</h3>
-      </Col>
+  useEffect(() => {
+    // Fetch orders when the component mounts
+    fetchBooks();
+  }, [cId]);
 
-      <Col >
-        <button type="button" className="btn btn-outline-success">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart-check-fill" viewBox="0 0 16 16">
-            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"></path>
-          </svg>
-          Add to Cart
-        </button>
+  const fetchBooks = async () => {
+    const fetchedBooks = await myWishlist(cId);
+    console.log(fetchedBooks)
+    setBooks(fetchedBooks || []); // Ensure that fetchedOrders is not undefined
+  };
 
-        <button type="button" className="btn btn-outline-danger">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"></path>
-          </svg>
-          Remove
-        </button>
-      </Col>
+  const addToCart = (cId, isbn) => {
+    cartService.addToCart(cId, isbn).then((response) => {
+        //console.log(response.data.message);
+        toast.info(response.data.message, {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    })
+  }
+  const removeFromWishlist = (cId, isbn) => {
+    wishlistService.removeBook(cId, isbn).then((response) => {
+        console.log(response);
+        window.location.reload();
+    })
+  }
 
-    </Row>
+  return (
+    <Container className="my-5" style={{ background: 'white' }}>
+      <h1>My Wishlist</h1>
+      {books.map((book, index) => (
+    <div key={index} className="card mb-3"> {/* Add margin-bottom here */}
+        <div className="row mb-3">
+        <div className="col-3">
+    <img
+        className="img-fluid"
+        src={'data:image/jpg;base64,' + book.image}
+        alt={book.title}
+        style={{ width: '80px', height: '90px' }} // Set your desired width and height
+    />
+</div>
 
-  </Container>
-}
+            <div className="col-3">
+                <h5>{book.title}</h5>
+            </div>
+            <div className="col-2">
+                <p>Price: &#8377; {book.price}</p>
+            </div>
+            <div className="col-2">
+            <Button variant="primary" onClick={() => addToCart(cId, book.isbn)}>Add to Cart</Button>
+            <Button variant="btn btn-outline-danger " onClick={() =>removeFromWishlist(cId, book.isbn)}>Remove</Button>
+            </div>
+            <div className="col-2">
+                
+            </div>
+            {/* Add more details as needed */}
+        </div>
+    </div>
+))}
+    </Container>
+  );
+};
 
 export default Wishlist;
+
