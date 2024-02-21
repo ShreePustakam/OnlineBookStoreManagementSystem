@@ -14,9 +14,9 @@ function Navbar2() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <NavDropdown title="Geners" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.4">Self-Help</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">Manga</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">Fanatasy</NavDropdown.Item>
+              <NavDropdown.Item href="#selfhelp">Self-Help</NavDropdown.Item>
+              <NavDropdown.Item href="#manga">Manga</NavDropdown.Item>
+              <NavDropdown.Item href="#fantasy">Fanatasy</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/aboutus">About Us</Nav.Link>

@@ -30,7 +30,7 @@ function SelfHelpSeries(props) {
 
     return <div className="series" style={{ marginBottom: 90 }}>
         <h1>Self-Help</h1>
-        <Container>
+        <Container id="selfhelp">
             <Row>
                 {
                     books.map((e) => {

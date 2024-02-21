@@ -31,7 +31,7 @@ function MangaSeries(props) {
 
     return <div className="series" style={{marginBottom:90}}>
         <h1>Manga</h1>
-        <Container>
+        <Container id="manga">
         <Row>
         {
         books.map((e) => {
