@@ -40,7 +40,7 @@ function Navbar1User() {
                         <Nav.Link href="/profile">{sessionStorage.getItem("userName")} s'Profile</Nav.Link>
 
                         {/* <Nav.Link href="/home">{sessionStorage.clear}Logout</Nav.Link> */}
-                        <button onClick={logout()}>Logout</button>
+                        <button onClick={logout}>Logout</button>
                         
                     </Nav>
                 </Navbar.Collapse>

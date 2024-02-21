@@ -18,18 +18,11 @@ function UserProfile() {
     }, []);
 
     return <Container className="user-container">
-<<<<<<< HEAD
-            <Row className="user-profile">
-                <Col>
-                    <img src="ProjectAssets\signin-image.jpg"></img>
-                </Col>
-=======
         <Row className="user-profile">
 
             <Col>
                 <img src="ProjectAssets\signin-image.jpg"></img>
             </Col>
->>>>>>> 15b5afa2c2485325e3b127c47caf9ca0a49c6706
 
             <Col>
                 <h1 className='logo-font'><a href="/home" className='logo-font'>Pustakam</a></h1>
