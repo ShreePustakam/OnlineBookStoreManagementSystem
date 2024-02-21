@@ -4,16 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../Styles/navbarStyle.css';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import NewUserLogin from './NewUserLogin';
+import UserLogin from './UserLogin';
 
-function Navbar1User() {
-
-    const history = useHistory();
-
-    function logout(){
-        sessionStorage.clear();
-        history.push("/home");
-    }
+function Navbar1() {
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary" style={{backgroundColor:"#FFDFDF"}}>
@@ -37,10 +31,7 @@ function Navbar1User() {
                             <Button variant="outline-success">Search</Button>
                         </Form>
 
-                        <Nav.Link href="/profile">{sessionStorage.getItem("userName")} s'Profile</Nav.Link>
-
-                        {/* <Nav.Link href="/home">{sessionStorage.clear}Logout</Nav.Link> */}
-                        <button onClick={logout}>Logout</button>
+                        {sessionStorage.getItem("isLoggedIn") === "true" ? <UserLogin/> : <NewUserLogin/>}
                         
                     </Nav>
                 </Navbar.Collapse>
@@ -49,4 +40,4 @@ function Navbar1User() {
     );
 }
 
-export default Navbar1User;
+export default Navbar1;
