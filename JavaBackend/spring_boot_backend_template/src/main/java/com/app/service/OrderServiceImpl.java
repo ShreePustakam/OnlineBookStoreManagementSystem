@@ -104,7 +104,7 @@ public class OrderServiceImpl implements OrderService {
 	public ApiResponse changeOrderStatus(OStatus oStatus, Long oId) {
 		Order order = orderDao.findById(oId).orElseThrow(()-> new ResourceNotFoundException("Order/OrderId does not exists !!"));
 		if(order.getOStatus()==OStatus.CANCELLED)
-			return new ApiResponse("Order("+ oId +") is a canceled order!");
+			return new ApiResponse("Order("+ oId +") is a CANCELLED order!");
 		if(oStatus==OStatus.CANCELLED)
 		return cancelOrder(oId);
 		order.setOStatus(oStatus);
