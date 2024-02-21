@@ -3,12 +3,11 @@ import {Link, Switch, Route} from 'react-router-dom';
 import Login from "../Pages/Login"
 import SignUp from "../Pages/SignUp";
 import BookSet from "./BookSet";
-import Orders from './Orders';
+import OrdersDisplay from "../Pages/OrdersDisplay";
 import UserProfile from "../Pages/UserProfile";
 import BookDisplay from "../Pages/BookDisplay";
 import CartDisplay from "../Pages/CartDisplay";
 import WishlistDisplay from "../Pages/WishlistDisplay";
-import OrdersDisplay from "../Pages/OrdersDisplay";
 import AboutUs from "../Pages/AboutUs";
 import EditProfile from "../Pages/EditProfile";
 import AdminProfile from "../Pages/AdminProfile";
@@ -16,7 +15,10 @@ import AddBookImgByAdmin from "../Pages/AddBookImgByAdmin";
 import AddBookByAdmin from "../Pages/AddBookByAdmin";
 import Bill from "./Bill";
 import AllOrdersDisplay from "../Pages/AllOrdersDisplay";
-
+import AllBookDisplay from "../Pages/AllBookDisplay";
+import UpdateBookByAdmin from "../Pages/UpdateBookByAdmin";
+import Search from "../Pages/Search";
+import AddAddress from "../Pages/AddAddress";
 
 function App() {
     return (  
@@ -40,6 +42,10 @@ function App() {
             <Route path="/addbookimg" component={AddBookImgByAdmin} exact />
             <Route path="/bill" component={Bill} exact />
             <Route path="/allorders" component={AllOrdersDisplay} exact />
+            <Route path="/allbooks" component={AllBookDisplay} exact />
+            <Route path="/update" component={UpdateBookByAdmin} exact />
+            <Route path="/searchresult" component={Search} exact />
+            <Route path="/address" component={AddAddress} exact />
 
         </Switch>
         </>

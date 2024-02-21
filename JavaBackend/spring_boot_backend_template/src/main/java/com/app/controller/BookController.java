@@ -119,5 +119,15 @@ public class BookController {
 		else
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
+	
+	//REST API to get all books
+		@GetMapping
+		public ResponseEntity<?> getAllBook(){
+			List<Book> list = bookService.getAllBook();
+			if(!list.isEmpty())
+				return ResponseEntity.ok(list);
+			else
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 
 }

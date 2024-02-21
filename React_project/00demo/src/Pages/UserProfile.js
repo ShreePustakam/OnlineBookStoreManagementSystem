@@ -2,8 +2,10 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import "../Styles/userProfileStyle.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserProfile() {
 
@@ -17,6 +19,13 @@ function UserProfile() {
         setPhoneno(sessionStorage.getItem("phoneNo"));
     }, []);
 
+    const history = useHistory();
+
+    function logout(){
+        sessionStorage.clear();
+        history.push("/home");
+    }
+
     return <Container className="user-container">
         <Row className="user-profile">
 
@@ -28,11 +37,12 @@ function UserProfile() {
                 <h1 className='logo-font'><a href="/home" className='logo-font'>Pustakam</a></h1>
 
                 <div className='user-info'>
-                    <h3>{userName}</h3>
-                    <h5>{email}</h5>
-                    <h5>{phoneNo}</h5>
+                    <h3>Name: {userName}</h3>
+                    <h5>Email: {email}</h5>
+                    <h5>Phone: {phoneNo}</h5>
 
                     <div className='your-options'>
+                        <div style={{backgroundColor:"#FFF6F6"}}>
                         <div>
                             <a href="#" class="user-link">
                                 <Link to="/cart">Your cart </Link>
@@ -66,7 +76,19 @@ function UserProfile() {
                             </a>
                         </div>
 
-                        <p style={{ margin: 30 }}><a href="/home" style={{ color: "#D14D72" }}>Home</a></p>
+                        <div>
+                            <a href="#" class="user-link">
+                                <Link to="/address">Edit Address </Link>
+                            </a>
+                        </div>
+                        </div>
+                        <p style={{ marginTop: 30 }}><a href="/home" style={{ color: "#DD3333" }}>Home</a></p>
+
+                      
+                        <a href="#" class="user-link" onClick={logout} style={{ color: "#DD3333" }}>
+                                <Link to="/editprofile">Logout </Link>
+                        </a>
+
                     </div>
                 </div>
             </Col>
