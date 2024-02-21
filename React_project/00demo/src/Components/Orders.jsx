@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Table, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { myOrders } from '../Services/order.service';
+import "../Styles/ordersStyle.css";
+import '../Styles/cartStyle.css';
 
 // ... (import statements)
 
@@ -21,8 +23,9 @@ const OrderPage = () => {
   };
 
   return (
+    <Container className='yourCart'>
+    <h1>My Orders</h1>
     <Container className="my-5" style={{ background: 'white' }}>
-      <h1>My Orders</h1>
       <Table responsive bordered hover>
         <thead>
           <tr>
@@ -51,6 +54,7 @@ const OrderPage = () => {
           ))}
         </tbody>
       </Table>
+    </Container>
     </Container>
   );
 };

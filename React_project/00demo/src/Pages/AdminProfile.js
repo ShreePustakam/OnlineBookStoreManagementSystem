@@ -19,7 +19,7 @@ function AdminProfile() {
                         <h3>Your name</h3>
                         <h5>youremail@gmail.com</h5>
 
-                        <div className='your-options'>
+                        <div className='your-options' style={{backgroundColor:"#FFF6F6"}}>
                             <div>
                                 <a href="#" class="user-link">
                                     <Link to="/orders">All Orders </Link>
