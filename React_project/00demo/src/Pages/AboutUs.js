@@ -25,10 +25,9 @@ function AboutUs() {
                         <a href='https://github.com/KunalP1303' style={{marginLeft:50}}>Kunal Patle</a>
                         <a href='https://github.com/hrutikpiprade' style={{marginLeft:50}}>Hrutik Piprade</a>
                         <a href='https://github.com/aseem-hub' style={{marginLeft:50}}>Aseem Vairagi</a>
-                    <p>
-                        Why do we use it?
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
+                    <p style={{marginLeft:70, marginRight:70}}>
+                        Welcome! We are glad to see you here. 
+                        Our development team isn't just a collection of professionals; they are a force of creativity, problem-solving, and relentless pursuit of excellence. As we delve into the world of coding, problem-solving, and cutting-edge technology, let us take a moment to paint a picture of the remarkable individuals who make up this extraordinary team. For Front-end development we had Apoorva Vairagi and Aseem Vairagi. For the back-end we had Kunal Patle and Hrutik Piprade. And to integrate everything we all were involved. We invite you to join me in acknowledging the hard work, passion, and ingenuity that our development team brings to the table. Together, we are not just witnessing technological advancements; we are actively shaping the future.
                     </p>
                 </Col>
             </Row>
