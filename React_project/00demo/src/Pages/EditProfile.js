@@ -4,14 +4,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import userService from '../Services/user.service';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function EditProfile() {
     const [userName, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNo, setPhoneno] = useState('');
-
+    const history = useHistory();
     const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
+    //const queryParams = new URLSearchParams(location.search);
 
     const cId = sessionStorage.getItem("cId");
 
@@ -27,12 +28,15 @@ function EditProfile() {
             email,
             phoneNo,
         };
-     
-        if(cId) {
+
+        if (cId) {
             userService.updateProfile(user, cId)
                 .then((response) => {
                     console.log('User edited successfully', response);
-                    // history.push("/login");
+                    sessionStorage.setItem("userName", userName);
+                    sessionStorage.setItem("email", email);
+                    sessionStorage.setItem("phoneNo", phoneNo);
+                    history.push("/profile");
                 })
                 .catch((error) => {
                     alert(error);
@@ -42,16 +46,16 @@ function EditProfile() {
         }
     };
 
-    const getUserProfile=()=>{
-        userService.getProfile(cId)
-        .then((response)=>{
-            const result=response;
-            console.log(result);
-            sessionStorage.setItem("userName", result.userName);
-            sessionStorage.setItem("email", result.email);
-            sessionStorage.setItem("phoneNo", result.phoneNo);
-        })
-    }
+    // const getUserProfile = () => {
+    //     userService.getProfile(cId)
+    //         .then((response) => {
+    //             const result = response;
+    //             console.log(result.data);
+    //             sessionStorage.setItem("userName", result.data.userName);
+    //             sessionStorage.setItem("email", result.data.email);
+    //             sessionStorage.setItem("phoneNo", result.data.phoneNo);
+    //         })
+    // }
 
     return (
         <Container>
@@ -67,7 +71,6 @@ function EditProfile() {
                         <form method="POST" className="register-form" id="register-form" onSubmit={(e) => {
                             e.preventDefault();
                             saveUserInfo(cId);
-                            getUserProfile();
                         }}>
                             <div className="form-group">
                                 <label htmlFor="name"><i className="zmdi zmdi-account material-icons-name"></i></label>
@@ -93,7 +96,7 @@ function EditProfile() {
                             <button type="submit" className="btn btn-success">
                                 Save Info
                             </button>
-                            <p style={{ margin: 30 }}><a href="/home" style={{ color: "#D14D72" }}>Go to Home</a></p>
+                            <p style={{ margin: 30 }}><a href="/profile" style={{ color: "#D14D72" }}>&lt; Back</a></p>
                         </form>
                     </div>
                 </Col>
