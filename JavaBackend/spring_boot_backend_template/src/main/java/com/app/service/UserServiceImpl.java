@@ -102,4 +102,13 @@ public class UserServiceImpl implements UserService {
 					.orElseThrow(() -> new ResourceNotFoundException("Invalid Username or Password"));
 		return mapper.map(usr, UserDTO.class);
 	}
+	
+	@Override
+	public ApiResponse removeFromWishlist(@Valid Long cId, @Valid String isbn) {
+		User user = userDao.findById(cId)
+				.orElseThrow(()-> new ResourceNotFoundException("Customer not found"));
+		Book book = bookDao.getReferenceById(isbn);
+		user.removeFromWishlist(book);
+		return new ApiResponse("Book removed from your Wishlist");
+	}
 }
