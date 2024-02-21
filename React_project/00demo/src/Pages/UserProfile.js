@@ -2,8 +2,10 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import "../Styles/userProfileStyle.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserProfile() {
 
@@ -16,6 +18,13 @@ function UserProfile() {
         setEmail(sessionStorage.getItem("email"));
         setPhoneno(sessionStorage.getItem("phoneNo"));
     }, []);
+
+    const history = useHistory();
+
+    function logout(){
+        sessionStorage.clear();
+        history.push("/home");
+    }
 
     return <Container className="user-container">
         <Row className="user-profile">
@@ -63,6 +72,12 @@ function UserProfile() {
                         <div>
                             <a href="#" class="user-link">
                                 <Link to="/editprofile">Edit Profile </Link>
+                            </a>
+                        </div>
+
+                        <div className="logout">
+                        <a href="#" class="user-link" onClick={logout}>
+                                <Link to="/editprofile">Logout </Link>
                             </a>
                         </div>
 
