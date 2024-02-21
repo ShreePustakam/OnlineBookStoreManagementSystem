@@ -18,8 +18,8 @@ function Navbar2() {
               <NavDropdown.Item href="#manga">Manga</NavDropdown.Item>
               <NavDropdown.Item href="#fantasy">Fanatasy</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/aboutus">About Us</Nav.Link>
+            <Nav.Link href="/home" style={{marginLeft:50}}>Home</Nav.Link>
+            <Nav.Link href="/aboutus" style={{marginLeft:50}}>About Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

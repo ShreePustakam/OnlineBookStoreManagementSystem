@@ -1,14 +1,15 @@
-import react from "react";
-import Navbar1User from "../Components/Navbar1User";
-import Navbar1NewUser from "../Components/Navbar1NewUser";
+import Navbar1 from "../Components/Navbar1";
 import Navbar2 from "../Components/Navbar2";
+import SearchResult from "../Components/SearchResult";
+import Footer from "../Components/Footer";
 
 function Search(){
     return (
         <>
-        {sessionStorage.getItem("isLoggedIn") === "true" ? <Navbar1User/> : <Navbar1NewUser/>}
+        <Navbar1/>
         <Navbar2/>
-        
+        <SearchResult/>
+        <Footer/>
         </>
     )
 }
