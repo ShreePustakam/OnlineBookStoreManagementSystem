@@ -6,11 +6,17 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../Styles/allSeriesStyle.css';
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import cartService from '../Services/book-qty.service';
+import wishlistService from '../Services/wishlist.service'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
 function MangaSeries(props) {
+
+    const cId = sessionStorage.getItem("cId");
 
     var [books, fantasyBooks] = useState([]);
     useEffect(() => {
@@ -21,6 +27,38 @@ function MangaSeries(props) {
         axios.get(`http://localhost:8080/books/category/MANGA`, {}).then((response) => {
             fantasyBooks(response.data);
         })
+    }
+
+    const addToCart = (cId, isbn) => {
+        cartService.addToCart(cId, isbn).then((response) => {
+            //console.log(response.data.message);
+            toast.info(response.data.message, {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+        )
+    }
+
+    const addToWishlist = (cId, isbn) => {
+        wishlistService.addToWishlist(cId, isbn).then((response) => {
+            //console.log(response.data.message);
+            toast.success(response.data.message, {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+        )
     }
 
     const history = useHistory();
@@ -45,8 +83,8 @@ function MangaSeries(props) {
                                         <Card.Text>
                                             ₹{e.price}
                                         </Card.Text>
-                                        <Button variant="primary">Add to Cart</Button>
-                                        <button type="button" className="btn btn-outline-danger" style={{ margin: 10 }}>
+                                        <Button variant="primary" onClick={() => addToCart(cId, e.isbn)}>Add to Cart</Button>
+                                        <button type="button" className="btn btn-outline-danger" style={{ margin: 10 }} onClick={() => addToWishlist(cId, e.isbn)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"></path>
                                             </svg>
@@ -59,6 +97,7 @@ function MangaSeries(props) {
                     })
                 }
             </Row>
+            <ToastContainer />
         </Container>
     </div>
 }
