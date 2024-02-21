@@ -58,7 +58,6 @@ public class OrderServiceImpl implements OrderService {
 			return null;
 		//new order object transient -> persistent
 		Order order = orderDao.save(new Order(null,OStatus.ORDERED,LocalDate.now(),LocalDate.now().plusDays(5),0,userDao.getReferenceById(cId)));
-		PlaceOrderDTO orderDto = mapper.map(order, PlaceOrderDTO.class);
 		//copied all the book quantity from customers cart to the order quantity list
 		List<OrderQty> orderQtys= new ArrayList<OrderQty>();
 		bookQtys.forEach(bookQty ->  orderQtys.add(new OrderQty(null, bookQty.getBook(), bookQty.getQuantity(), order)));
@@ -82,7 +81,7 @@ public class OrderServiceImpl implements OrderService {
 		orderQtyDao.saveAll(orderQtys);
 		// empty the cart after ordered
 		bookQtyDao.deleteAll(bookQtys);
-		
+		PlaceOrderDTO orderDto = mapper.map(order, PlaceOrderDTO.class);
 		return orderDto;
 	}
 	
