@@ -15,6 +15,7 @@ import EditProfile from "../Pages/EditProfile";
 import AdminProfile from "../Pages/AdminProfile";
 import AddBookImgByAdmin from "../Pages/AddBookImgByAdmin";
 import AddBookByAdmin from "../Pages/AddBookByAdmin";
+import Search from "../Pages/Search";
 
 function App() {
     return (  
@@ -36,7 +37,7 @@ function App() {
             <Route path="/adminprofile" component={AdminProfile} exact/>
             <Route path="/addbook" component={AddBookByAdmin} exact />
             <Route path="/addbookimg" component={AddBookImgByAdmin} exact />
-
+	        <Route path="/searchresult" component={Search} exact />
         </Switch>
         </>
     );

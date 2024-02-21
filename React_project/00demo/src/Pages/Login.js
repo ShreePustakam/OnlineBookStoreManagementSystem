@@ -29,6 +29,7 @@ function Login() {
           sessionStorage.setItem("email", result.email);
           sessionStorage.setItem("phoneNo", result.phoneNo);
           sessionStorage.setItem("role", result.role);
+          sessionStorage.setItem("isLoggedIn", "true");
           toast.success("Welcome " + result.userName)
           history.push("/home");
         }
@@ -38,6 +39,7 @@ function Login() {
           sessionStorage.setItem("email", result.email);
           sessionStorage.setItem("phoneNo", result.phoneNo);
           sessionStorage.setItem("role", result.role);
+          sessionStorage.setItem("isLoggedIn", "true");
           toast.success("Welcome " + result.userName)
           history.push("/adminProfile");
         }
