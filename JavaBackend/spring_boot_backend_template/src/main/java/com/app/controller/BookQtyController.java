@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,6 @@ import com.app.dto.SetBookQtyDTO;
 //import com.app.dto.SetBookQtyDTO;
 import com.app.service.BookQtyService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/bookQty")
@@ -39,7 +39,7 @@ public class BookQtyController {
 	// REST API to display cart
 	@GetMapping("/cart/{cId}")
 	public ResponseEntity<?> customerCart(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(bookQtyService.displayCart(cId));
+		return ResponseEntity.status(HttpStatus.OK).body(bookQtyService.displayCart(cId));
 	}
 	
 	// REST API to remove book from cart
@@ -50,7 +50,8 @@ public class BookQtyController {
 	
 	// REST API to set quantity of the book
 	@PutMapping("/cart/qty")
-	public ResponseEntity<?> setQuantity(@RequestBody @Valid SetBookQtyDTO bookQty){
+	public ResponseEntity<?> setQuantity(@RequestBody @Valid  SetBookQtyDTO bookQty){
+			System.out.println(bookQty);
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(bookQtyService.setQuantity(bookQty));
 		}
 }

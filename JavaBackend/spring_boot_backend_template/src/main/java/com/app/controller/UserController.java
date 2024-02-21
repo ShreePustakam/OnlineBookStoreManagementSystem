@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,12 +78,18 @@ public class UserController {
 	// REST API to display wishlist
 	@GetMapping("/wishlist/{cId}")
 	public ResponseEntity<?> customerWishlist(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(userService.displayWishlist(cId));
+		return ResponseEntity.status(HttpStatus.OK).body(userService.displayWishlist(cId));
+	}
+	
+	// REST API to remove wishlist
+	@DeleteMapping("/wishlist/{cId}/{isbn}")
+	public ResponseEntity<?> removeFromCart(@PathVariable @Valid Long cId,@PathVariable @Valid String isbn){
+		return ResponseEntity.status(HttpStatus.OK).body(userService.removeFromWishlist(cId,isbn));
 	}
 
 	// REST API to Find user by id
 	@GetMapping("/id/{cId}")
 	public ResponseEntity<?> findProfile(@PathVariable @Valid Long cId){
-		return ResponseEntity.status(HttpStatus.FOUND).body(userService.findProfile(cId));
+		return ResponseEntity.status(HttpStatus.OK).body(userService.findProfile(cId));
 	}
 }

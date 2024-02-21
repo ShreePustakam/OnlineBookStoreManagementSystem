@@ -1,5 +1,7 @@
 package com.app.dto;
 
+import javax.persistence.Enumerated;
+
 import com.app.entities.State;
 
 import lombok.AllArgsConstructor;

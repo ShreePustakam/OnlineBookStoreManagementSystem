@@ -29,4 +29,6 @@ public interface UserService {
 
 	UserDTO loginUser(@Valid LoginRequestDTO userLogin);
 
+	ApiResponse removeFromWishlist(@Valid Long cId, @Valid String isbn);
+
 }

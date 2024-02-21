@@ -12,6 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookQtyDTO {
+	
+	private Long id;
 
 	private Book book;
 	
