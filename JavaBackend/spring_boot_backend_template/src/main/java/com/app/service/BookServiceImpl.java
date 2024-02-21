@@ -78,4 +78,10 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getBooksByStock(int value) {
 		return bookDao.findByStockLessThanEqual(value) ;
 	}
+
+	@Override
+	public List<Book> getAllBook() {
+		
+		return bookDao.findAll();
+	}
 }
