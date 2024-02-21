@@ -78,7 +78,7 @@ function UserProfile() {
                         <div className="logout">
                         <a href="#" class="user-link" onClick={logout}>
                                 <Link to="/editprofile">Logout </Link>
-                            </a>
+                        </a>
                         </div>
 
                         <p style={{ margin: 30 }}><a href="/home" style={{ color: "#D14D72" }}>Home</a></p>
