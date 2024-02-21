@@ -38,6 +38,12 @@ public class BookQtyServiceImpl implements BookQtyService {
 	
 	@Override
 	public ApiResponse addToCart(@Valid Long cId, @Valid String isbn) {
+		
+		BookQty booksQty = bookQtyDao.findByUserUserIdAndBookIsbn(cId, isbn);
+		
+		if(booksQty != null)
+			return new ApiResponse("Book alredy present in your cart");
+		
 		User user = userDao.getReferenceById(cId);
 		Book book = bookDao.getReferenceById(isbn);
 		BookQty cartItem = new BookQty();
@@ -45,6 +51,7 @@ public class BookQtyServiceImpl implements BookQtyService {
 		cartItem.setQuantity(1);
 		cartItem.setUser(user);
 		bookQtyDao.save(cartItem);
+		
 		return new ApiResponse("Book added to your cart");
 	}
 	

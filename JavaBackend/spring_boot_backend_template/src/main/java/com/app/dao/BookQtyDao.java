@@ -13,5 +13,4 @@ public interface BookQtyDao extends JpaRepository<BookQty, Long> {
 	public void deleteByUserUserIdAndBookIsbn(Long cId,String isbn);
 	
 	public BookQty findByUserUserIdAndBookIsbn(Long cId,String isbn);
-
 }
