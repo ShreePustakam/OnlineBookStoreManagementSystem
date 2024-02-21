@@ -14,7 +14,7 @@ function UserLogin() {
         <>
             <Nav.Link href="/profile">{sessionStorage.getItem("userName")} s'Profile</Nav.Link>
 
-            <a href="#" class="user-link" onClick={logout}>
+            <a href="#" class="user-link" onClick={logout} style={{marginTop:20, marginLeft:30}}>
                 <Link to="/editprofile">Logout </Link>
             </a>
         </>

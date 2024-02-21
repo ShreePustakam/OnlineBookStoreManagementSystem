@@ -37,11 +37,12 @@ function UserProfile() {
                 <h1 className='logo-font'><a href="/home" className='logo-font'>Pustakam</a></h1>
 
                 <div className='user-info'>
-                    <h3>{userName}</h3>
-                    <h5>{email}</h5>
-                    <h5>{phoneNo}</h5>
+                    <h3>Name: {userName}</h3>
+                    <h5>Email: {email}</h5>
+                    <h5>Phone: {phoneNo}</h5>
 
                     <div className='your-options'>
+                        <div style={{backgroundColor:"#FFF6F6"}}>
                         <div>
                             <a href="#" class="user-link">
                                 <Link to="/cart">Your cart </Link>
@@ -75,19 +76,19 @@ function UserProfile() {
                             </a>
                         </div>
 
-                        <div className="logout">
-                        <a href="#" class="user-link" onClick={logout}>
-                                <Link to="/editprofile">Logout </Link>
-                        </a>
-                        </div>
-
                         <div>
                             <a href="#" class="user-link">
                                 <Link to="/address">Edit Address </Link>
                             </a>
                         </div>
+                        </div>
+                        <p style={{ marginTop: 30 }}><a href="/home" style={{ color: "#DD3333" }}>Home</a></p>
 
-                        <p style={{ margin: 30 }}><a href="/home" style={{ color: "#D14D72" }}>Home</a></p>
+                      
+                        <a href="#" class="user-link" onClick={logout} style={{ color: "#DD3333" }}>
+                                <Link to="/editprofile">Logout </Link>
+                        </a>
+
                     </div>
                 </div>
             </Col>

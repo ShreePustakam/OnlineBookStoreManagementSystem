@@ -43,7 +43,7 @@ function Navbar1() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <InputGroup className="mb-3">
+                        <InputGroup className="mb-3" style={{marginTop:10}}>
                             <FormControl
                                 placeholder="Search..."
                                 value={searchTerm}
