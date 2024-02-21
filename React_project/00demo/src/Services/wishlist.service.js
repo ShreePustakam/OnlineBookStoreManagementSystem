@@ -4,4 +4,12 @@ const addToWishlist = (cId, isbn) => {
     return httpClient.post('/customer/wishlist/' + cId + '/' + isbn);
 }
 
-export default { addToWishlist };
+const myWishlist = (cId) => {
+    return httpClient.get('/customer/wishlist/' + cId);
+}
+
+const removeBook = (cId, isbn) => {
+    return httpClient.delete('/customer/wishlist/' + cId + '/' + isbn);
+}
+
+export default { addToWishlist ,myWishlist ,removeBook };
