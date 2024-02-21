@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../Styles/signupStyle.css';
 import '../Styles/navbarStyle.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddBookImgByAdmin() {
   const [image, setImage] = useState('');
@@ -23,7 +25,18 @@ function AddBookImgByAdmin() {
     bookImgService.postAddBookInfo(formData, isbn)
       .then((response) => {
         console.log('Book Image added successfully', response);
-        history.push("/addbook");
+        toast.success('Book image uploaded successfully', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(() => history.push("/addbook"), 3000)
+
+        // history.push("/addbook");
       })
       .catch((error) => {
         alert(error);
@@ -62,6 +75,7 @@ function AddBookImgByAdmin() {
           </div>
         </Col>
       </Row>
+      <ToastContainer />
     </Container>
   );
 }

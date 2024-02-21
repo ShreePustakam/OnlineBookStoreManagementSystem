@@ -7,6 +7,8 @@ import '../Styles/navbarStyle.css';
 import axios from 'axios';
 import { Link, useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import bookService from '../Services/book.service';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddBookByAdmin() {
 
@@ -42,7 +44,17 @@ function AddBookByAdmin() {
         bookService.postAddBookInfo(book)
             .then((response) => {
                 console.log('Book added successfully', response);
-                history.push("/addbookimg?isbn="+isbn);
+                toast.success('Book added successfully', {
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                setTimeout(() => history.push("/addbookimg?isbn=" + isbn), 3000)
+                //history.push("/addbookimg?isbn=" + isbn);
             })
             .catch((error) => {
                 alert(error);
@@ -92,59 +104,60 @@ function AddBookByAdmin() {
                             </div>
 
                             <div className="form-group">
-                <label for="stock"><i className="zmdi zmdi-lock-outline"></i></label>
-                <input type="number" name="stock" id="stock" placeholder="Book Stocks"
-                 value={stock}
-                 onChange={(e) => setStock(e.target.value)}/>
-                </div>
-                
-                <div className="form-group">
-                <label for="author"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                <input type="text" name="author" id="author" placeholder="Book Author"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}/>
-                </div>
+                                <label for="stock"><i className="zmdi zmdi-lock-outline"></i></label>
+                                <input type="number" name="stock" id="stock" placeholder="Book Stocks"
+                                    value={stock}
+                                    onChange={(e) => setStock(e.target.value)} />
+                            </div>
 
-                <div className="form-group">
-                    <label htmlFor="publishedDate"><i className="zmdi zmdi-date-range material-icons-name"></i></label>
-                    <input type="date" name="publishedDate" id="publishedDate" placeholder="Select Published date"
-                    value={publishedDate}
-                    onChange={(e) => setPublishedDate(e.target.value)}/>
-                </div>
+                            <div className="form-group">
+                                <label for="author"><i className="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="author" id="author" placeholder="Book Author"
+                                    value={author}
+                                    onChange={(e) => setAuthor(e.target.value)} />
+                            </div>
 
-                <div className="form-group">
-                    <label htmlFor="binding"><i className="zmdi zmdi-keyboard-arrow-down material-icons-name"></i></label>
-                    <select name="binding" id="binding"  placeholder="Book Binding"
-                     value={binding}
-                     onChange={(e) => setBinding(e.target.value)} >
-                        <option value="" disabled selected>Select the book binding</option>
-                        <option value="PAPERBACK">PAPERBACK</option>
-                        <option value="HARDCOVER">HARDCOVER</option>
-                    </select>
-                </div>
-                
-                <div className="form-group">
-                    <label htmlFor="genre"><i className="zmdi zmdi-keyboard-arrow-down material-icons-name"></i></label>
-                    <select name="genre" id="genre"  placeholder="Book Genre"
-                    value={genre}
-                    onChange={(e) => setGenre(e.target.value)}>
-                        <option value="" disabled selected>Select  the  book  genre</option>
-                        <option value="FICTION">FICTION</option>
-                        <option value="HORROR">HORROR</option>
-                        <option value="FANTASY">FANTASY</option>
-                        <option value="MANGA">MANGA</option>
-                        <option value="SELFHELP">SELFHELP</option>
-                    </select>
-                </div>
+                            <div className="form-group">
+                                <label htmlFor="publishedDate"><i className="zmdi zmdi-date-range material-icons-name"></i></label>
+                                <input type="date" name="publishedDate" id="publishedDate" placeholder="Select Published date"
+                                    value={publishedDate}
+                                    onChange={(e) => setPublishedDate(e.target.value)} />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="binding"><i className="zmdi zmdi-keyboard-arrow-down material-icons-name"></i></label>
+                                <select name="binding" id="binding" placeholder="Book Binding"
+                                    value={binding}
+                                    onChange={(e) => setBinding(e.target.value)} >
+                                    <option value="" disabled selected>Select the book binding</option>
+                                    <option value="PAPERBACK">PAPERBACK</option>
+                                    <option value="HARDCOVER">HARDCOVER</option>
+                                </select>
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="genre"><i className="zmdi zmdi-keyboard-arrow-down material-icons-name"></i></label>
+                                <select name="genre" id="genre" placeholder="Book Genre"
+                                    value={genre}
+                                    onChange={(e) => setGenre(e.target.value)}>
+                                    <option value="" disabled selected>Select  the  book  genre</option>
+                                    <option value="FICTION">FICTION</option>
+                                    <option value="HORROR">HORROR</option>
+                                    <option value="FANTASY">FANTASY</option>
+                                    <option value="MANGA">MANGA</option>
+                                    <option value="SELFHELP">SELFHELP</option>
+                                </select>
+                            </div>
 
                             <button type="submit" className="btn btn-success">
                                 Add Book
                             </button>
-                           
+
                         </form>
                     </div>
                 </Col>
             </Row>
+            <ToastContainer />
         </Container>
     </>
 }
