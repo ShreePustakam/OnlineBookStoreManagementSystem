@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../Styles/allSeriesStyle.css';
-import {useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import {useHistory, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useState, useEffect } from "react";
 
 function SearchResult() {
@@ -18,6 +18,12 @@ function SearchResult() {
         booksSearch(location.state);
     }, [])
 
+    
+    const history = useHistory();
+
+    function sendIsbn(isbn){
+        history.push("book",{isbn});
+    }
 
     return <div className="series" style={{ marginBottom: 90 }}>
         <h1>Your search result</h1>
@@ -30,7 +36,7 @@ function SearchResult() {
                                 <Card className="card-container">
                                     <Card.Img className="card-img" src={"data:image/jpg;base64," + e.image} style={{ width: 100, alignContent: "center" }} />
                                     <Card.Body>
-                                        <Card.Title>{e.title}</Card.Title>
+                                        <Card.Title onClick={()=>sendIsbn(e.isbn)}>{e.title}</Card.Title>
                                         <Card.Text>{e.author}</Card.Text>
                                         <Card.Text>
                                             ₹{e.price}
