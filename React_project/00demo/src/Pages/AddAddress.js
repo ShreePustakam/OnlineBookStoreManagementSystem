@@ -9,6 +9,7 @@ import addressService from '../Services/address.service';
 function AddAddress() {
 
     const cId = sessionStorage.getItem("cId");
+    var message="";
 
     const [streetArea, setStreetArea] = useState('');
     const [city, setCity] = useState('');
@@ -25,8 +26,18 @@ function AddAddress() {
 
     const saveAddress = (e) => {
         e.preventDefault();
-        if (streetArea) {
-            //update
+        if (message === "Address not found") {
+            //Post to add address
+                addressService
+                .create(address)
+                .then((response) => {
+                    console.log('Address added successfully', response.data);
+                })
+                .catch((error) => {
+                    console.log('something went wroing' + error.response);
+                });
+        } else {
+            //Put Method for update
             addressService
                 .update(cId, address)
                 .then((response) => {
@@ -37,16 +48,6 @@ function AddAddress() {
                     console.log('Error code ' + error);
                     console.log('Something went wrong', error.response.data);
                 });
-        } else {
-            //create
-            addressService
-                .create(cId, address)
-                .then((response) => {
-                    console.log('Address added successfully', response.data);
-                })
-                .catch((error) => {
-                    console.log('something went wroing' + error.response);
-                });
         }
     }
 
@@ -55,7 +56,7 @@ function AddAddress() {
             addressService
                 .get(cId)
                 .then((address) => {
-                    console.log(address.data);
+                    message = address.data.message;
                     setStreetArea(address.data.streetArea);
                     setCity(address.data.city);
                     setState(address.data.state);

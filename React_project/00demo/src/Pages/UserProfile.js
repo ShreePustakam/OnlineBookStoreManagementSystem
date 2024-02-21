@@ -81,6 +81,12 @@ function UserProfile() {
                         </a>
                         </div>
 
+                        <div>
+                            <a href="#" class="user-link">
+                                <Link to="/address">Edit Address </Link>
+                            </a>
+                        </div>
+
                         <p style={{ margin: 30 }}><a href="/home" style={{ color: "#D14D72" }}>Home</a></p>
                     </div>
                 </div>
