@@ -103,10 +103,12 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public ApiResponse changeOrderStatus(OStatus oStatus, Long oId) {
 		Order order = orderDao.findById(oId).orElseThrow(()-> new ResourceNotFoundException("Order/OrderId does not exists !!"));
-		order.setOStatus(oStatus);
+		if(order.getOStatus()==OStatus.CANCELLED)
+			return new ApiResponse("Order("+ oId +") is a canceled order!");
 		if(oStatus==OStatus.CANCELLED)
-			cancelOrder(oId);
-		return new ApiResponse("Order("+ oId +") has been "+ oStatus.toString());
+		return cancelOrder(oId);
+		order.setOStatus(oStatus);
+		return new ApiResponse("Order("+ oId +") status changed to "+ oStatus.toString());
 	}
 	
 	//service method to get all orders of specific customer
