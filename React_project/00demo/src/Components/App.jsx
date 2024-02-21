@@ -18,6 +18,7 @@ import AllOrdersDisplay from "../Pages/AllOrdersDisplay";
 import AllBookDisplay from "../Pages/AllBookDisplay";
 import UpdateBookByAdmin from "../Pages/UpdateBookByAdmin";
 import Search from "../Pages/Search";
+import AddAddress from "../Pages/AddAddress";
 
 function App() {
     return (  
@@ -44,6 +45,7 @@ function App() {
             <Route path="/allbooks" component={AllBookDisplay} exact />
             <Route path="/update" component={UpdateBookByAdmin} exact />
             <Route path="/searchresult" component={Search} exact />
+            <Route path="/address" component={AddAddress} exact />
 
         </Switch>
         </>
