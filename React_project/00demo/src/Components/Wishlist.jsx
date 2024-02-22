@@ -18,9 +18,11 @@ const Wishlist = () => {
   }, [cId]);
 
   const fetchBooks = async () => {
-    const fetchedBooks = await wishlistService.myWishlist(cId);
-    console.log(fetchedBooks)
-    setBooks(fetchedBooks || []); // Ensure that fetchedOrders is not undefined
+    wishlistService.myWishlist(cId).then((response)=>{
+      console.log(response.data)
+      setBooks(response.data || []); // Ensure that fetchedOrders is not undefined
+    });
+    
   };
 
   const addToCart = (cId, isbn) => {
@@ -76,6 +78,7 @@ const Wishlist = () => {
         </div>
     </div>
 ))}
+  <ToastContainer/>
     </Container>
   );
 };
