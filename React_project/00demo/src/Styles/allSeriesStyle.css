@@ -24,3 +24,8 @@
     width: 70%;
     color: #B9005B;
 }
+
+.title-hover:hover{
+    color: black;
+    cursor: pointer;
+}
