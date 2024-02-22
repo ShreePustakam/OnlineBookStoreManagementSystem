@@ -30,9 +30,8 @@ function FantasySeries(props) {
     }
 
     const addToCart = (cId, isbn) => {
-        cartService.addToCart(cId, isbn).then((response) => {
-            //console.log(response.data.message);
-            toast.info(response.data.message, {
+        if (cId === null) {
+            toast.warning("Please Login First", {
                 position: 'top-right',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -42,13 +41,25 @@ function FantasySeries(props) {
                 progress: undefined,
             });
         }
-        )
+        else {
+            cartService.addToCart(cId, isbn).then((response) => {
+                //console.log(response.data.message);
+                toast.info(response.data.message, {
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+        }
     }
 
     const addToWishlist = (cId, isbn) => {
-        wishlistService.addToWishlist(cId, isbn).then((response) => {
-            //console.log(response.data.message);
-            toast.success(response.data.message, {
+        if (cId === null) {
+            toast.warning("Please Login First", {
                 position: 'top-right',
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -58,7 +69,20 @@ function FantasySeries(props) {
                 progress: undefined,
             });
         }
-        )
+        else {
+            wishlistService.addToWishlist(cId, isbn).then((response) => {
+                //console.log(response.data.message);
+                toast.success(response.data.message, {
+                    position: 'top-right',
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+        }
     }
 
     const history = useHistory();
