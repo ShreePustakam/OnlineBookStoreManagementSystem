@@ -16,4 +16,4 @@ const removeBook = (cId, isbn) => {
     return httpClient.delete('/bookQty/cart/' + cId + '/' + isbn);
 }
 
-export default { addToCart, displayCart, setBookQuantity, removeBookA };
+export default { addToCart, displayCart, setBookQuantity, removeBook };

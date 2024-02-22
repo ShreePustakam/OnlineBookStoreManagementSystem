@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Table, Container } from 'react-bootstrap';
 import axios from 'axios';
-import wishlistService, { myWishlist } from '../Services/wishlist.service';
+import wishlistService from '../Services/wishlist.service';
 import cartService from '../Services/book-qty.service';
 import Button from 'react-bootstrap/Button';
 import { ToastContainer, toast } from 'react-toastify';
@@ -18,7 +18,7 @@ const Wishlist = () => {
   }, [cId]);
 
   const fetchBooks = async () => {
-    const fetchedBooks = await myWishlist(cId);
+    const fetchedBooks = await wishlistService.myWishlist(cId);
     console.log(fetchedBooks)
     setBooks(fetchedBooks || []); // Ensure that fetchedOrders is not undefined
   };
