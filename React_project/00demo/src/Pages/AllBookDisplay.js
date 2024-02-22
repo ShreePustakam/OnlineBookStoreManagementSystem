@@ -7,10 +7,7 @@ function AllBookDisplay() {
 
    return (
       <>
-         <Navbar1/>
-         <Navbar2/>
          <AllBooks/> 
-         <Footer/>
       </>
    )
 }
