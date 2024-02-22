@@ -98,7 +98,7 @@ function Cart() {
                   className="img-fluid"
                   src={'data:image/jpg;base64,' + orderItem.book.image}
                   alt={orderItem.book.title}
-                  style={{ width: '90px', marginLeft:20 }}
+                  style={{ width: '90px',marginLeft:20, marginTop:10, marginBottom:10}}
                 />
               </Col>
 
