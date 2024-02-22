@@ -78,7 +78,7 @@ function MangaSeries(props) {
                                 <Card className="card-container">
                                     <Card.Img className="card-img" src={"data:image/jpg;base64," + e.image} style={{ width: 100, alignContent: "center" }} />
                                     <Card.Body>
-                                        <Card.Title onClick={() => sendIsbn(e.isbn)}>{e.title}</Card.Title>
+                                        <Card.Title onClick={() => sendIsbn(e.isbn)} className="title-hover">{e.title}</Card.Title>
                                         <Card.Text>{e.author}</Card.Text>
                                         <Card.Text>
                                             ₹{e.price}
