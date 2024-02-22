@@ -153,6 +153,9 @@ function AddBookByAdmin() {
                                 Add Book
                             </button>
 
+                            <p style={{ margin: 30 }}><a href="/adminprofile" style={{ color: "#D14D72" }}>&lt; Back</a></p>
+
+
                         </form>
                     </div>
                 </Col>
