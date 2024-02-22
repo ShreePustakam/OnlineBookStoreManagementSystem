@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { orderBooks } from '../Services/order.service';
 import { useHistory, useLocation } from 'react-router-dom';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 function Bill() {
     const [books, setBooks] = useState([]);
@@ -14,6 +16,10 @@ function Bill() {
         fetchBooks();
     }, [oId]);
 
+    function goToHome(){
+        history.push("/home");
+    }
+
     const fetchBooks = async () => {
         const fetchedBooks = await orderBooks(oId);
         setBooks(fetchedBooks || []); // Ensure that fetchedBooks is not undefined
@@ -25,16 +31,13 @@ function Bill() {
                     <div className="card-header bg-white">
                         <div className="row justify-content-between">
                             <div className="col-8">
-                                <h4 className="mb-0">Thanks for your Order, <span className="change-color">{sessionStorage.getItem('userName')}</span>!</h4>
+                                <h4 className="mb-0" style={{color:'#B9005B', marginTop:15}}>Thanks for your Order, <span className="change-color">{sessionStorage.getItem('userName')}</span>!</h4>
                             </div>
-                            <div className="col-4 text-right">
-                                <img className="img-fluid" src="http://localhost:3000/logobg.png" alt="Books For Everyone" width="60" height="60" />
-                                <p className="mb-0 Glasses">Books For Everyone</p>
-                            </div>
+                            <Navbar onClick={goToHome} className='logo-font' >PUSTAKAM</Navbar>
                         </div>
                     </div>
 
-                    <div className="col-auto"> <h6 className="color-1 mb-0 change-color">Receipt</h6> </div>
+                    <div className="col-auto" style={{color:'#B9005B', marginTop:15}}> <h4 className="color-1 mb-0 change-color">Receipt</h4> </div>
                     <div className="card-body">
 
                         {books.map((orderItem, index) => (
@@ -50,16 +53,16 @@ function Bill() {
                                     </div>
 
                                     <div className="col-3">
-                                        <h5>{orderItem.book.title}</h5>
+                                        <h5 style={{color:'#B9005B'}}>{orderItem.book.title}</h5>
                                     </div>
                                     <div className="col-2">
-                                        <p>Price: &#8377; {orderItem.book.price}</p>
+                                        <p style={{color:'#B9005B'}}>Price: &#8377; {orderItem.book.price}</p>
                                     </div>
                                     <div className="col-2">
-                                        <p>Quantity: {orderItem.quantity}</p>
+                                        <p style={{color:'#B9005B'}}>Quantity: {orderItem.quantity}</p>
                                     </div>
                                     <div className="col-2">
-                                        <p>Subtotal: {orderItem.quantity * orderItem.book.price}</p>
+                                        <p style={{color:'#B9005B'}}>Subtotal: {orderItem.quantity * orderItem.book.price}</p>
                                     </div>
                                     {/* Add more details as needed */}
                                 </div>
@@ -67,9 +70,9 @@ function Bill() {
                         ))}
 
 
-                        <div className="col">
+                        <div className="col" style={{color:'#B9005B'}}>
                             <div className="row justify-content-between">
-                                <div className="col-auto"><p className="mb-1 text-dark"><b>Order Details</b></p></div>
+                                <div className="col-auto"><p className="mb-1 text-dark"><b style={{color:'#B9005B'}}>Order Details</b></p></div>
                                 <div className="flex-sm-col text-right col"> <p className="mb-1"><b>Total</b></p> </div>
                                 <div className="flex-sm-col col-auto"> <p className="mb-1">&#8377;{books.reduce((total, orderItem) => total + orderItem.book.price * orderItem.quantity, 0)}</p> </div>
                             </div>
@@ -80,14 +83,12 @@ function Bill() {
                         </div>
 
                     </div>
-                    <div className="card-footer">
+                    <div className="card-footer" style={{color:'#B9005B'}}>
                         <div className="jumbotron-fluid">
                             <div className="row justify-content-between">
-                                <div className="col-sm-auto col-auto my-auto">
-                                    <img className="img-fluid my-auto align-self-center" src="http://localhost:3000/logobg.png" alt="Logo" width="60" height="60" />
-                                </div>
+                                
                                 <div className="col-auto my-auto">
-                                    <h2 className="mb-0 font-weight-bold">TOTAL PAID</h2>
+                                    <h2 className="mb-0">TOTAL PAID</h2>
                                 </div>
                                 <div className="col-auto my-auto ml-auto">
                                     <h1 className="display-3">&#8377; {books.reduce((total, orderItem) => total + orderItem.book.price * orderItem.quantity, 0)}</h1>
