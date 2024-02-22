@@ -90,14 +90,14 @@ function Cart() {
       <Container className='yourCart'>
         <h1>Your Cart</h1>
         {cart.map((orderItem, index) => (
-          <div key={index} className="card mb-3">
+          <div key={index} className="card mb-3" style={{backgroundColor:"white"}}>
             <div className="row mb-3">
               <div className="col-3">
                 <img
                   className="img-fluid"
                   src={'data:image/jpg;base64,' + orderItem.book.image}
                   alt={orderItem.book.title}
-                  style={{ width: '80px', height: '90px' }}
+                  style={{ width: '90px', marginLeft:20 }}
                 />
               </div>
 
