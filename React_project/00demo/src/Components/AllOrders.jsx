@@ -71,9 +71,9 @@ const AdminOrderPage = () => {
   };
 
   return (
-    <Container className="my-5" style={{ background: 'white' }}>
+    <Container className='yourCart'>
       <h1>Manage Orders</h1>
-      <Table responsive bordered hover>
+      <Table responsive bordered hover style={{backgroundColor:"white"}}>
         <thead>
           <tr>
             <th>Order ID</th>
