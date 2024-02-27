@@ -48,6 +48,9 @@ public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private BookDao bookDao;
 	
+	@Autowired
+	private MailService mailService;
+	
 	//service method to place order
 	@Override
 	public PlaceOrderDTO placeOrder(Long cId) {
@@ -81,11 +84,12 @@ public class OrderServiceImpl implements OrderService {
 		orderQtyDao.saveAll(orderQtys);
 		// empty the cart after ordered
 		bookQtyDao.deleteAll(bookQtys);
+		mailService.sendMailToCustomer(order);
 		PlaceOrderDTO orderDto = mapper.map(order, PlaceOrderDTO.class);
 		return orderDto;
 	}
 	
-	// service method to cancle order
+	// service method to cancel order
 	@Override
 	public ApiResponse cancelOrder(Long oId) {
 		Order order = orderDao.findById(oId).orElseThrow(()-> new ResourceNotFoundException("Order/OrderId does not exists !!"));
